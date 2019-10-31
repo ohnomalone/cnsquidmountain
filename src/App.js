@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import {fetchWord} from './apiCalls'
 
 export default class App extends React.Component {
   constructor() {
@@ -8,18 +9,13 @@ export default class App extends React.Component {
   }
 
   componentDidMount = async () => {
-
-    const options = {
-      method: 'GET',
-      headers: {
-        'X-Mashape-Key': 'dbc73f3956mshcf26537552ba173p1081edjsn50c9347e0b06',
-        'Accept' : 'application/json'
-      }
+    try {
+      const getWord = await fetchWord("protect")
+      console.log(getWord)
+    } catch {
+      console.log('error')
     }
-    fetch("https://wordsapiv1.p.mashape.com/words/soliloquy", options)
-      .then(res => res.json())
-      .then(wordData => console.log(wordData))
-      .catch(err => console.log(err));
+  
   };
 
 
