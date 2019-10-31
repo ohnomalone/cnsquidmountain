@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import {fetchWord} from './apiCalls'
+import {fetchWord} from './Utilities/apiCalls'
 
 export default class App extends React.Component {
   constructor() {
