@@ -8,6 +8,7 @@ import App from './containers/App/App';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 
+
 const store = createStore(rootReducer, composeWithDevTools());
 
 ReactDOM.render(
