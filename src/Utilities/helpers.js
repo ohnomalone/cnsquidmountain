@@ -1,9 +1,16 @@
-export const wordFetchCleaner = (word, prefix, rootWord) => {
-    return (
-        word,
-        definition: word.results[0].definition,
-        partOfSpeech: word.results[0].partOfSpeech,
+export const wordFetchCleaner = (prefix, fetchedWord) => {
+    return ({
+        word: fetchedWord.word,
+        definition: fetchedWord.results[0].definition,
+        partOfSpeech: fetchedWord.results[0].partOfSpeech,
         prefix,
-        rootWord
-    )
+        rootWord: createRootWord(fetchedWord.syllables.list)
+        
+    })
 }
+
+const createRootWord = (rootsyllables) => {
+    rootsyllables.shift()
+    return rootsyllables.join('')
+}
+
