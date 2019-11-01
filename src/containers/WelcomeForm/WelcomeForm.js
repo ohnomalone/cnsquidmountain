@@ -14,10 +14,13 @@ export class WelcomeForm extends React.Component {
 
     render() {
         return(
-            <form className="welcomeForm">
-                <label htmlFor="Name" className="welcomeFormName__label">Name</label>
-                <input className="welcomeFormName__input" id="Name" type="text" name="Name" placeholder="NAME" onChange={this.handleChange} value={this.state.name} />
-            </form>
+            <div className="welcomeForm__div">
+                <form className="welcomeForm">
+                    <label htmlFor="Name" className="welcomeFormName__label">Name</label>
+                    <input className="welcomeFormName__input" id="Name" type="text" name="Name" placeholder="NAME" onChange={this.handleChange} value={this.state.name} />
+                    <button  type="button" className="welcomeFormName__button" onClick={this.handleSubmit(submit)}>Submit</button>
+                </form>
+            </div>
         )
     }
 };
