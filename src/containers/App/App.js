@@ -42,7 +42,6 @@ export class App extends React.Component {
   render() {
     return (
       <div>
-        <h1>Squid Mountain</h1>
         <WelcomeForm />
       </div>
     )

@@ -1,0 +1,58 @@
+.welcomeForm__div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    /* margin-top: 50%; */
+}
+
+.large_logo {
+    height: 275px;
+    width: 275px;
+    margin-bottom: 50px;
+}
+
+.welcomeForm--title {
+    font-size: 100px;
+    margin: 20px 0;
+}
+
+.welcomeForm {
+    display: flex;
+    flex-direction: column;
+    background: rgba(169, 169, 169, 0.55);
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.welcomeFormName__label {
+    margin-bottom: 20px;
+    font-size: 23px;
+    font-weight: 600;
+}
+
+.welcomeFormName__input {
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid black;
+    width: 400px;
+    height: 40px;
+    margin-bottom: 20px;
+    font-size: 40px;
+    text-align: center;
+    padding-bottom: 5px;
+    font-weight: 700;
+
+}
+
+::placeholder {
+    color: white;
+}
+
+.welcomeFormName__button {
+    height: 40px;
+    border-radius: 10px;
+    font-size: 30px;
+    font-weight: 700;
+}
