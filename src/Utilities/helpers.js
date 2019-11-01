@@ -5,7 +5,6 @@ export const wordFetchCleaner = (prefix, fetchedWord) => {
         partOfSpeech: fetchedWord.results[0].partOfSpeech,
         prefix,
         rootWord: createRootWord(fetchedWord.syllables.list)
-        
     })
 }
 
