@@ -30,7 +30,7 @@ export default class App extends React.Component {
       }
 
     }
-    console.log( await fetchEachWord())
+    // console.log( await fetchEachWord())
   };
 
 
