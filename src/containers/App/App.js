@@ -36,7 +36,7 @@ export class App extends React.Component {
       }
 
     }
-    addFetchedWords( await fetchEachWord())
+    // addFetchedWords( await fetchEachWord())
   };
 
   render() {
