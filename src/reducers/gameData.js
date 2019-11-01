@@ -6,12 +6,3 @@ export const gameData = (state = [], action) => {
             return state
     }
 }
-
-export const currentPlayer = (state = '', action) => {
-    switch(action.type) {
-        case 'SET_PLAYER':
-            return action.playerName
-        default:
-            return state
-    }
-}

@@ -1,12 +1,13 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
-import logo from './logo.svg';
 import './App.css';
 import {fetchWord} from '../../Utilities/apiCalls'
 import gameData from '../../gameData/gameData'
 import { wordFetchCleaner } from '../../Utilities/helpers'
 import { connect } from 'react-redux'
 import { addFetchedWords } from '../../actions'
+
+import WelcomeForm from '../WelcomeForm/WelcomeForm'
 
 // import { connect } from 'net';
 
@@ -42,6 +43,7 @@ export class App extends React.Component {
     return (
       <div>
         <h1>Squid Mountain</h1>
+        <WelcomeForm />
       </div>
     )
   }
