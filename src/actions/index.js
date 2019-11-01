@@ -3,7 +3,7 @@ export const addFetchedWords = fetchedData => ({
     fetchedData
 })
 
-export const setUser = userName => ({
-    type: 'SET_USER',
-    userName
+export const setPlayer = playerName => ({
+    type: 'SET_PLAYER',
+    playerName
 })
