@@ -12,7 +12,17 @@ export class WelcomeForm extends React.Component {
         this.setState({ [event.target.name]: event.target.value })
     }
 
+    handleSubmit = event => {
+
+    }
+
+    canBeSubmitted() {
+        const { name } = this.state
+        return name.length > 0
+    }
+
     render() {
+        const isEnabled =  this.canBeSubmitted();
         return(
             <div className="welcomeForm__div">
                 <form className="welcomeForm">
