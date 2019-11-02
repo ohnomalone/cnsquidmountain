@@ -51,11 +51,11 @@ export class WelcomeForm extends React.Component {
                     <p className={this.props.currentPlayer ? "currentPlayer--name" : "display-none"}>{this.props.currentPlayer}!</p>
                     <div className="ready__div">
                         <p className={this.props.currentPlayer ? "welcomeForm--ready--text" : "display-none"}>Ready to go?</p>
-                        <div className="start__button--wrapper" >
+                        <div className={ this.props.currentPlayer ? "start__button--wrapper" : "display-none"} >
                             <div className="start__button--border">
                                 <button
                                 type='button'
-                                className={this.props.currentPlayer ? "welcomeForm--start--button" : "display-none"}
+                                className="welcomeForm--start--button"
                                 // onClick={(event) => this.handleSubmit(event)}
                                 >Start</button> 
                                 <div className="start__button--pulse" ></div>
