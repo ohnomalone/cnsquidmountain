@@ -44,17 +44,34 @@ export class WelcomeForm extends React.Component {
                 className="large_logo"
                 />
                 <form className="welcomeForm">
-                    <label htmlFor="name" className="welcomeFormName__label">Mountaineer's Name:</label>
-                    <input className="welcomeFormName__input" id="name" type="text" name="name" placeholder="Enter Name Here" onChange={this.handleChange} value={this.state.name} />
-                    <button  type="button" className="welcomeFormName__button" disabled={!isEnabled} onClick={this.handleSubmit}>Enter</button>
+                    <label htmlFor="name" className={this.props.currentPlayer ? "display-none" : "welcomeFormName__label"}>Mountaineer's Name:</label>
+                    <input className={this.props.currentPlayer ? "display-none" : "welcomeFormName__input"} id="name" type="text" name="name" placeholder="Enter Name Here" onChange={this.handleChange} value={this.state.name} />
+                    <button  type="button" className={this.props.currentPlayer ? "display-none" : "welcomeFormName__button"} disabled={!isEnabled} onClick={this.handleSubmit}>Enter</button>
+                    <p className={this.props.currentPlayer ? "welcomeForm--welcome--text" : "display-none"}>Welcome,</p>
+                    <p className={this.props.currentPlayer ? "currentPlayer--name" : "display-none"}>{this.props.currentPlayer}!</p>
+                    <div className="ready__div">
+                        <p className={this.props.currentPlayer ? "welcomeForm--ready--text" : "display-none"}>Ready to go?</p>
+                        <div className="start__button--wrapper" >
+                            <div className="start__button--border">
+                                <button
+                                type='button'
+                                className={this.props.currentPlayer ? "welcomeForm--start--button" : "display-none"}
+                                // onClick={(event) => this.handleSubmit(event)}
+                                >Start</button> 
+                                <div className="start__button--pulse" ></div>
+                            </div>
+                        </div>
+                    </div>
                 </form>
             </div>
         )
     }
 };
 
+const matStateToProps = ({ currentPlayer }) => ({ currentPlayer})
+
 const mapDispatchToProps = dispatch => (bindActionCreators ({
     setPlayer
 }, dispatch))
 
-export default connect(null, mapDispatchToProps)(WelcomeForm);
+export default connect(matStateToProps, mapDispatchToProps)(WelcomeForm);

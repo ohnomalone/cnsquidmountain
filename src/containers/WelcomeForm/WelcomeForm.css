@@ -23,12 +23,14 @@
 .welcomeForm {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     background: rgba(169, 169, 169, 0.55);
     padding: 15px;
     border-radius: 10px;
     width: 30%;
     min-width: 355px;
     max-width: 700px;
+    height: 190px;
 }
 
 .welcomeFormName__label {
@@ -41,7 +43,6 @@
     background: transparent;
     border: none;
     border-bottom: 3px solid black;
-    /* width: 400px; */
     height: 40px;
     margin-bottom: 20px;
     font-size: 40px;
@@ -55,9 +56,90 @@
     color: white;
 }
 
+.welcomeForm--start--button,
 .welcomeFormName__button {
     height: 40px;
     border-radius: 10px;
     font-size: 30px;
     font-weight: 700;
 }
+
+.currentPlayer--name,
+.welcomeForm--welcome--text{
+    font-size: 40px;
+    font-weight: 300;
+    margin: 0;
+    align-self: center;
+    color: rgba(71, 122, 140, 1);
+
+}
+
+.ready__div{
+    display: flex;
+    justify-content: space-between;
+}
+
+.welcomeForm--ready--text{
+    font-size: 30px;
+    font-weight: 300;
+    margin: 0;
+    align-self: center;
+}
+
+.currentPlayer--name {
+    font-size: 70px;
+    font-weight: 700;
+    color: #FFF;
+}
+
+.display-none {
+    display: none;
+}
+
+.start__button--wrapper {
+    display: block;
+    margin: 0 auto;
+    width: 30%;
+    height: 40px;
+}
+
+.start__button--border {
+    position: relative;
+    height: 40px;
+    border: 2px solid #89849b;
+    border-radius: 10px;
+}
+
+.welcomeForm--start--button {
+    position: absolute;
+    width: 100%;
+    height: 40px;
+}
+
+.start__button--pulse {
+    height: 40px;
+    width: 100%;
+    position: absolute;
+    margin: 0;
+    animation: pulsate 2s ease-out;
+    animation-iteration-count: infinite;
+    opacity: 0.0;
+    box-shadow: 0 0 1px 2px orange;
+    animation-delay: 2s;
+    border-radius: 10px;
+}
+
+
+@keyframes pulsate {
+    0% {
+      transform: scale(0.9, 0.9);
+      opacity: 0.0;
+    }
+    50% {
+      opacity: 1.0;
+    }
+    100% {
+      transform: scale(1.3, 1.3);
+      opacity: 0;
+    }
+  }
