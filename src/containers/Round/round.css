@@ -1,0 +1,8 @@
+.round__section {
+    background: rgba(245, 245, 245, 0.85);
+    padding: 0 10%;
+    height: 85%;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 #505050, 0 6px 20px 1px #505050;
+    padding-top: 3%;
+}
