@@ -1,5 +1,6 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
+import { BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import './App.css';
 import {fetchWord} from '../../Utilities/apiCalls'
 import gameData from '../../gameData/gameData'
@@ -41,9 +42,11 @@ export class App extends React.Component {
 
   render() {
     return (
-      <div className="App_div">
-        <WelcomeForm />
-      </div>
+      <Router>
+        <div className="App_div">
+          <Route exact path="/" component={WelcomeForm} />
+        </div>
+      </Router>
     )
   }
 
