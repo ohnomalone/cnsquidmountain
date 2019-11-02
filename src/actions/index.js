@@ -7,3 +7,7 @@ export const setPlayer = playerName => ({
     type: 'SET_PLAYER',
     playerName
 })
+
+export const increaseRound = () => ({
+    type: 'INCREASE_ROUND'
+})
