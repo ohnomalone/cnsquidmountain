@@ -1,10 +1,13 @@
 .round__section {
     background: rgba(245, 245, 245, 0.85);
-    padding: 0 10%;
+    /* padding: 0 10%; */
     height: 85%;
     border-radius: 5px;
     box-shadow: 0 4px 8px 0 #505050, 0 6px 20px 1px #505050;
-    padding-top: 3%;
+    /* padding-top: 3%; */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 'column1 column2';
 }
 
 .completedWord__container {
@@ -41,4 +44,26 @@
 
 .completedWord__p--sentence {
     margin-bottom: 0;
+}
+
+.prefix-guess {
+    grid-area: column1;
+    border-right: 2px solid black;
+}
+
+.root-guess {
+    grid-area: column2;
+}
+
+.prefix-guess,
+.root-guess {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+
+.prefix--root--title {
+    color: black;
+    border-bottom:1px solid black;
 }

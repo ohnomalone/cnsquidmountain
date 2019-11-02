@@ -12,15 +12,18 @@ export class Round extends React.Component {
         }
     }
 
-
-
     render() {
         return (
             <>
                 <main className="game__main">
                     <h2>Round</h2>
                     <section className="round__section">
-
+                        <div className="round__section--play prefix-guess">
+                            <p className="prefix--root--title">PREFIX</p>
+                        </div>
+                        <div className="round__section--play root-guess">
+                        <p className="prefix--root--title">ROOT</p> {/* make this word conditional on the round. If round 0 then meanings if not then ROOT conditional  */}
+                        </div>
                     </section>
                 </main>
                 <aside className="completed--words__aside">
@@ -44,4 +47,3 @@ export class Round extends React.Component {
 }
 
 export default Round
-
