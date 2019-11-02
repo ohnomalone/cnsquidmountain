@@ -53,12 +53,12 @@ export class WelcomeForm extends React.Component {
                         <p className={this.props.currentPlayer ? "welcomeForm--ready--text" : "display-none"}>Ready to go?</p>
                         <div className={ this.props.currentPlayer ? "start__button--wrapper" : "display-none"} >
                             <div className="start__button--border">
+                                <div className="start__button--pulse" ></div>
                                 <button
                                 type='button'
                                 className="welcomeForm--start--button"
                                 // onClick={(event) => this.handleSubmit(event)}
                                 >Start</button> 
-                                <div className="start__button--pulse" ></div>
                             </div>
                         </div>
                     </div>
