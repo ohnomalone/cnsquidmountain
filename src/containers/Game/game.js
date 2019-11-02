@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux'
 import './round.css'
 
-export class Round extends React.Component {
+export class Game extends React.Component {
     constructor() {
         super()
         this.state = {
@@ -22,5 +22,4 @@ export class Round extends React.Component {
     }
 }
 
-export default Round
-
+export default Game
