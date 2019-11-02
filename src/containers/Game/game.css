@@ -1,0 +1,60 @@
+.game--body {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: 'header header header' 'main main aside';
+    height: 100%;
+    width: 100vw;
+    /* background-color: #46424D; */
+    color: #FFF;
+}
+
+header {
+ grid-area: header;
+ display: flex;
+ justify-content: space-between;
+ height: 10vh;
+ border: 1px solid red;
+}
+
+main {
+ grid-area: main;
+ border: 1px solid red;
+ /* background-color: #2B2733; */
+ padding: 0 20px 20px 20px;
+ height: 90vh;
+}
+
+aside {
+ grid-area: aside;
+ border: 1px solid red;
+ /* background-color: #2B2733; */
+}
+
+.game--name--startover,
+.game--logo--title {
+    display: flex;
+    align-items: center;
+}
+
+.game--logo {
+    height: 100%;
+    width: auto;
+}
+  
+.game--title {
+    color: black;
+    font-size: 70px;
+    margin: 0;
+}
+
+.game--name--startover {
+    align-items: flex-start;
+
+}
+
+.game--name__h3--text {
+    margin: 0;
+    color: orange;
+    text-shadow: 2px 2px black;
+    font-size: 30px;
+}
