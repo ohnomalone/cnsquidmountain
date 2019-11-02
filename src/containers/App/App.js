@@ -9,6 +9,7 @@ import { connect } from 'react-redux'
 import { addFetchedWords } from '../../actions'
 
 import WelcomeForm from '../WelcomeForm/WelcomeForm'
+import {Game} from '../Game/game'
 
 // import { connect } from 'net';
 
@@ -44,7 +45,7 @@ export class App extends React.Component {
     return (
       <Router>
         <div className="App_div">
-          <Route exact path="/" component={WelcomeForm} />
+          <Route exact path="/" component={Game} />
         </div>
       </Router>
     )

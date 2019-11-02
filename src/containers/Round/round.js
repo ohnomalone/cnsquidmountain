@@ -2,12 +2,13 @@ import React from 'react'
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux'
 import './round.css'
+import '../Game/game.css'
 
 export class Round extends React.Component {
     constructor() {
         super()
         this.state = {
-            completedWords = [] // id's of current words will live here
+            completedWords: [] // id's of current words will live here
         }
     }
 
@@ -15,9 +16,17 @@ export class Round extends React.Component {
 
     render() {
         return (
-            <div>
+            <>
+                <main className="game__main">
+                    <h2>Round</h2>
+                    <section className="round__section">
 
-            </div>
+                    </section>
+                </main>
+                <aside className="completed--words__aside">
+                    <h2>Completed Words</h2>
+                </aside>
+            </>
         )
     }
 }
