@@ -1,0 +1,22 @@
+.playing--card__div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    border-radius: 10px;
+    border: 2px solid black;
+}
+
+.selected--card {
+    border: 2px solid blue;
+    box-shadow: 0 4px 8px 0 #505050, 0 6px 20px 1px #505050;
+}
+
+.incorrect--card {
+    border: 2px solid red;
+}
+
+.playing--card__div:hover {
+    cursor: pointer;
+    box-shadow: 0 4px 8px 0 #505050, 0 6px 20px 1px #505050;
+}
