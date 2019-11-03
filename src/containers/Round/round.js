@@ -12,17 +12,12 @@ export class Round extends React.Component {
     constructor() {
         super()
         this.state = {
-            completedWords: [] // id's of current words will live here
+            completedWords: []
         }
     }
 
-    // choosePrefixCards = () => {
-    //     this.props.currentRound ? console.log('THIS IS NOT ROUND 0') : console.log("THIS IS ROUND 0", (this.sortPrefix([...this.props.prefixRoundData, ...this.props.prefixRoundData])))
-    //     return this.props.currentRound ? (this.sortPrefix([...this.props.prefixRoundData, ...this.props.prefixRoundData])) : (this.props.prefixRoundData)
-    // }
-
     buildPrefixCards = () => {
-        return this.sortPrefix(this.props.prefixRoundData.map(prefix => <PlayingCard prefix={prefix}/>))
+        return this.sortPrefix(this.props.prefixRoundData.map(prefix => <PlayingCard key={prefix.id} prefix={prefix}/>))
     }
 
     sortPrefix = prefixes => {
@@ -30,7 +25,12 @@ export class Round extends React.Component {
     }
 
     buildWarmUpCards = () => {
-        return this.sortPrefix(this.props.prefixMeaningData.map(prefix => <PlayingCard prefix={prefix}/>))
+        return this.sortPrefix(this.props.prefixMeaningData.map(prefix => <PlayingCard key={prefix.id} prefix={prefix}/>))
+    }
+
+    handleChange = event => {
+        console.log(event)
+        // this.setState({ [event.target.name]: event.target.value })
     }
 
     render() {
