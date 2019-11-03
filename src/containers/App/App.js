@@ -9,7 +9,7 @@ import { connect } from 'react-redux'
 import { addFetchedWords } from '../../actions'
 
 import WelcomeForm from '../WelcomeForm/WelcomeForm'
-import {Game} from '../Game/game'
+import Game from '../Game/game'
 
 // import { connect } from 'net';
 

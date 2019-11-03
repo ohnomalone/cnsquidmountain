@@ -22,14 +22,14 @@ export class Round extends React.Component {
                             <p className="prefix--root--title">PREFIX</p>
                         </div>
                         <div className="round__section--play root-guess">
-                        <p className="prefix--root--title">ROOT</p> {/* make this word conditional on the round. If round 0 then meanings if not then ROOT conditional  */}
+                        <p className="prefix--root--title">{this.props.currentRound ? 'ROOT' : 'MEANING'}</p> {/* make this word conditional on the round. If round 0 then meanings if not then ROOT conditional  */}
                         </div>
                     </section>
                 </main>
                 <aside className="completed--words__aside">
                     <h2>Completed Words</h2>
-                    <div class="insertCompletedWordsHere">
-                        <container className="completedWord__container" >
+                    <div className="insertCompletedWordsHere">
+                        <div className="completedWord__container" >
                             <div className="compltedword--word--definition">
                                 <div className="compltedword--word--pos">
                                     <p className="completedWord__p--word">Propel</p>
@@ -38,7 +38,7 @@ export class Round extends React.Component {
                                 <p className="completedWord__p--def">definition</p>
                             </div>
                                 <p className="completedWord__p--sentence">The young girl often wondered how NASA was able to propel shuttles into space.</p>
-                        </container>
+                        </div>
                     </div>
                 </aside>
             </>
@@ -46,4 +46,6 @@ export class Round extends React.Component {
     }
 }
 
-export default Round
+const matStateToProps = ({ currentRound }) => ({ currentRound})
+
+export default connect(matStateToProps, null)(Round)

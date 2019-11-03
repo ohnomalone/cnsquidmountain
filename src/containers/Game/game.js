@@ -28,7 +28,7 @@ export class Game extends React.Component {
                         <h1 className="game--title">Squid Mountain</h1>
                     </div>
                     <div className="game--name--startover">
-                        <h3 className="game--name__h3--text">Current Player{this.props.currentPlayer}</h3>
+                        <h3 className="game--name__h3--text">{this.props.currentPlayer}</h3>
                         <button
                                 type='button'
                                 className="game--startover--button"
@@ -44,3 +44,8 @@ export class Game extends React.Component {
         )
     }
 }
+
+
+const matStateToProps = ({ currentPlayer }) => ({ currentPlayer})
+
+export default connect(matStateToProps, null)(Game)
