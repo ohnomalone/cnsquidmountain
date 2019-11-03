@@ -8,7 +8,7 @@
     width: 80%;
     background-color: #FFF;
     margin-bottom: 2%;
-    height: 15%;
+    height: 18%;
 }
 
 .selected--card {
@@ -29,4 +29,7 @@
     color: black;
     font-size: 45px;
     font-weight: 700;
+    margin: 0;
+    line-height: 40px;
+    text-align: center;
 }

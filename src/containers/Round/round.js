@@ -16,22 +16,21 @@ export class Round extends React.Component {
         }
     }
 
-    // getPrefixCurrentRoundData = () => {
-    //     console.log(getPrefixData(this.props.gameData))
-    //     this.setState({prefixCurrentRoundData: getPrefixData(this.props.gameData)})
+    // choosePrefixCards = () => {
+    //     this.props.currentRound ? console.log('THIS IS NOT ROUND 0') : console.log("THIS IS ROUND 0", (this.sortPrefix([...this.props.prefixRoundData, ...this.props.prefixRoundData])))
+    //     return this.props.currentRound ? (this.sortPrefix([...this.props.prefixRoundData, ...this.props.prefixRoundData])) : (this.props.prefixRoundData)
     // }
 
-    choosePrefixCards = () => {
-        this.props.currentRound ? console.log('THIS IS NOT ROUND 0') : console.log("THIS IS ROUND 0", (this.sortPrefix([...this.props.prefixRoundData, ...this.props.prefixRoundData])))
-        return this.props.currentRound ? (this.sortPrefix([...this.props.prefixRoundData, ...this.props.prefixRoundData])) : (this.props.prefixRoundData)
-    }
-
-    buildPrefixCard = () => {
-        return this.choosePrefixCards().map(prefix => <PlayingCard prefix={prefix}/>)
+    buildPrefixCards = () => {
+        return this.sortPrefix(this.props.prefixRoundData.map(prefix => <PlayingCard prefix={prefix}/>))
     }
 
     sortPrefix = prefixes => {
         return prefixes.sort( (a,b) => 0.5 - Math.random())
+    }
+
+    buildWarmUpCards = () => {
+        return this.sortPrefix(this.props.prefixMeaningData.map(prefix => <PlayingCard prefix={prefix}/>))
     }
 
     render() {
@@ -42,10 +41,11 @@ export class Round extends React.Component {
                     <section className="round__section">
                         <div className="round__section--play prefix-guess">
                             <p className="prefix--root--title">PREFIX</p>
-                            {this.buildPrefixCard()}
+                            {this.buildPrefixCards()}
                         </div>
                         <div className="round__section--play root-guess">
                         <p className="prefix--root--title">{this.props.currentRound ? 'ROOT' : 'MEANING'}</p>
+                        {this.props.currentRound ? 'ROOT' : this.buildWarmUpCards()}
                         </div>
                     </section>
                 </main>
@@ -69,7 +69,7 @@ export class Round extends React.Component {
     }
 }
 
-const matStateToProps = ({ prefixRoundData, currentRound, gameData }) => ({ prefixRoundData, currentRound, gameData})
+const matStateToProps = ({ prefixMeaningData, prefixRoundData, currentRound, gameData }) => ({ prefixMeaningData, prefixRoundData, currentRound, gameData})
 
 const mapDispatchToProps = dispatch => (bindActionCreators({
     setPrefixRoundData

@@ -6,7 +6,7 @@ import {fetchWord} from '../../Utilities/apiCalls'
 import gameData from '../../gameData/gameData'
 import { wordFetchCleaner } from '../../Utilities/helpers'
 import { connect } from 'react-redux'
-import { addFetchedWords, setPrefixRoundData } from '../../actions'
+import { addFetchedWords, setPrefixRoundData, setPrefixMeaningData } from '../../actions'
 
 import WelcomeForm from '../WelcomeForm/WelcomeForm'
 import Game from '../Game/game'
@@ -17,11 +17,11 @@ export class App extends React.Component {
   }
   
   componentDidMount = async () => {
-    const { addFetchedWords, setPrefixRoundData } = this.props
+    const { addFetchedWords, setPrefixRoundData, setPrefixMeaningData } = this.props
     
     const fetchWordBank =  async () => {
       const variable = gameData.map ( async (prefix, i) => {
-        const fetchedWordBank = prefix.wordBank.map( async (word) => wordFetchCleaner(prefix, await fetchThisWord(word), i))
+        const fetchedWordBank = prefix.wordBank.map( async (word, num) => wordFetchCleaner(prefix, await fetchThisWord(word), i, num))
         return Promise.all(fetchedWordBank)
       })
       return Promise.all(variable)
@@ -29,6 +29,7 @@ export class App extends React.Component {
 
     const fetchThisWord = async (word) => {
       try {
+        console.log(word)
         const getWord = await fetchWord(word)
         return getWord
       } catch {
@@ -37,6 +38,7 @@ export class App extends React.Component {
     }
     addFetchedWords( await fetchWordBank())
     setPrefixRoundData(gameData)
+    setPrefixMeaningData(gameData)
   };
 
   render() {
@@ -55,7 +57,8 @@ const matStateToProps = ({ gameData }) => ({ gameData})
 
 const mapDispatchToProps = dispatch => (bindActionCreators({
   addFetchedWords,
-  setPrefixRoundData
+  setPrefixRoundData,
+  setPrefixMeaningData
 }, dispatch))
 
 export default connect(matStateToProps, mapDispatchToProps)(App);

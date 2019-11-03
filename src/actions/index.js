@@ -23,3 +23,8 @@ export const setPrefixRoundData = gameData => ({
     type: 'SET_PREFIX_ROUND_DATA',
     gameData
 })
+
+export const setPrefixMeaningData = gameData => ({
+    type: 'SET_PREFIX_MEANING_DATA',
+    gameData
+})
