@@ -1,12 +1,10 @@
 import React from 'react'
 import './playingCard.css'
 
-export const PlayingCard = ({ prefix }) => {
-    console.log(prefix.id)
-
+export const PlayingCard = ({ prefix, handleChange, value }) => {
     return (
-        <div  className="playing--card__div" data-id={prefix.id} key={prefix.id}>
-            <p className="playing--card__p--text">{prefix.prefix}</p>
+        <div  className={`playing--card__div ${value}`} type='button' data-id={prefix.id} data-value={value} key={prefix.id} onClick={handleChange}>
+            <p className="playing--card__p--text" data-value={value} data-id={prefix.id} >{prefix.prefix}</p>
         </div>
     )
 }
