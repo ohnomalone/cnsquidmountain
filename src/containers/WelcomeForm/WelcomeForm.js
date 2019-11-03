@@ -34,7 +34,6 @@ export class WelcomeForm extends React.Component {
     }
 
     handleStart = event => {
-        event.preventDefault();
         console.log(this.props)
         const { ramdomizeGameData,  gameData} = this.props
         ramdomizeGameData(gameData)
@@ -62,11 +61,11 @@ export class WelcomeForm extends React.Component {
                         <div className={ this.props.currentPlayer ? "start__button--wrapper" : "display-none"} >
                             <div className="start__button--border">
                                 <div className="start__button--pulse" ></div>
-                                <Link to={'/play'}>
+                                <Link to='/play'>
                                     <button
                                     type='button'
                                     className="welcomeForm--start--button"
-                                    onClick={(event) => this.handleStart(event)}
+                                    onClick={this.handleStart}
                                     >Start</button> 
                                 </Link>
                             </div>
