@@ -1,3 +1,5 @@
+import gameData from "../gameData/gameData"
+
 export const addFetchedWords = fetchedData => ({
     type: 'ADD_FETCHED_WORDS',
     fetchedData
@@ -12,6 +14,7 @@ export const increaseRound = () => ({
     type: 'INCREASE_ROUND'
 })
 
-export const ramdomizeGameData = () ({
-    type: 'RANDOMIZE_GAME_DATA'
+export const ramdomizeGameData = gameData => ({
+    type: 'RANDOMIZE_GAME_DATA',
+    gameData
 })
