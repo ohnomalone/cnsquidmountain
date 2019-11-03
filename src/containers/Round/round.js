@@ -3,34 +3,40 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux'
 import { getPrefixData } from '../../Utilities/helpers'
 import PlayingCard from '../../components/PlayingCard/playingCard'
-import { setPrefixRoundData } from '../../actions'
+import { setPrefixRoundData, setColumn1Guess, setColumn2Guess } from '../../actions'
 
 import './round.css'
 import '../Game/game.css'
 
 export class Round extends React.Component {
-    constructor() {
-        super()
-        this.state = {
-            completedWords: [] // id's of current words will live here
-        }
-    }
-
-    // choosePrefixCards = () => {
-    //     this.props.currentRound ? console.log('THIS IS NOT ROUND 0') : console.log("THIS IS ROUND 0", (this.sortPrefix([...this.props.prefixRoundData, ...this.props.prefixRoundData])))
-    //     return this.props.currentRound ? (this.sortPrefix([...this.props.prefixRoundData, ...this.props.prefixRoundData])) : (this.props.prefixRoundData)
+    // constructor() {
+    //     super()
+    //     this.state = {
+    //         completedWords: [],
+    //     }
     // }
 
     buildPrefixCards = () => {
-        return this.sortPrefix(this.props.prefixRoundData.map(prefix => <PlayingCard prefix={prefix}/>))
-    }
-
-    sortPrefix = prefixes => {
-        return prefixes.sort( (a,b) => 0.5 - Math.random())
+            return (this.props.prefixRoundData.map(prefix => <PlayingCard key={prefix.id} prefix={prefix} handleChange={this.handleChange} value={'column1'}/>))
     }
 
     buildWarmUpCards = () => {
-        return this.sortPrefix(this.props.prefixMeaningData.map(prefix => <PlayingCard prefix={prefix}/>))
+            return (this.props.prefixMeaningData.map(prefix => <PlayingCard key={prefix.id} prefix={prefix} handleChange={this.handleChange} value={'column2'}/>))
+    }
+
+    handleChange = event => {
+
+        console.log(event.target.dataset.value, event.target.dataset.id) 
+        event.target.dataset.value === 'column1' ? this.props.setColumn1Guess(event.target.dataset.id) : this.props.setColumn2Guess(event.target.dataset.id)
+        console.log(this.checkForMatch())
+    }
+
+    // removeHightLights = () => {
+
+    // }
+
+    checkForMatch = () => {
+        return this.props.column1Guess === this.props.column2Guess ? true : false
     }
 
     render() {
@@ -69,10 +75,12 @@ export class Round extends React.Component {
     }
 }
 
-const matStateToProps = ({ prefixMeaningData, prefixRoundData, currentRound, gameData }) => ({ prefixMeaningData, prefixRoundData, currentRound, gameData})
+const matStateToProps = ({ prefixMeaningData, prefixRoundData, currentRound, gameData, column1Guess, column2Guess }) => ({ prefixMeaningData, prefixRoundData, currentRound, gameData, column1Guess, column2Guess})
 
 const mapDispatchToProps = dispatch => (bindActionCreators({
-    setPrefixRoundData
+    setPrefixRoundData,
+    setColumn1Guess,
+    setColumn2Guess
   }, dispatch))
 
 export default connect(matStateToProps, mapDispatchToProps)(Round)

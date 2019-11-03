@@ -21,11 +21,11 @@ export class Game extends React.Component {
                     </div>
                     <div className="game--name--startover">
                         <h3 className="game--name__h3--text">{this.props.currentPlayer}</h3>
-                        <button
+                        {/* <button
                                 type='button'
                                 className="game--startover--button"
                                 // onClick={(event) => this.handleSubmit(event)}
-                                >Do A Thing</button> 
+                                >Do A Thing</button>  */}
                     </div>
                 </header>
                 <Round />
