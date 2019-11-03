@@ -19,7 +19,7 @@ export class Game extends React.Component {
         return (
             <div className="game--body">
                 <header>
-                    <div className="game--logo--title">
+                    <div className="game--logo--title__div">
                         <img
                             src={squidMountainLogo}
                             alt="Squid Mountain Logo"

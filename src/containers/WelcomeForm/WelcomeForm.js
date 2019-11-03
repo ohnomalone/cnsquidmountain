@@ -1,5 +1,6 @@
 import React from 'react'
 import { bindActionCreators } from 'redux';
+import { Link } from "react-router-dom";
 import { connect } from 'react-redux'
 import { setPlayer } from '../../actions'
 import './WelcomeForm.css'
@@ -13,7 +14,6 @@ export class WelcomeForm extends React.Component {
             name: ''
         };
     };
-    
     
     handleChange = event => {
         this.setState({ [event.target.name]: event.target.value })
@@ -54,11 +54,13 @@ export class WelcomeForm extends React.Component {
                         <div className={ this.props.currentPlayer ? "start__button--wrapper" : "display-none"} >
                             <div className="start__button--border">
                                 <div className="start__button--pulse" ></div>
-                                <button
-                                type='button'
-                                className="welcomeForm--start--button"
-                                // onClick={(event) => this.handleSubmit(event)}
-                                >Start</button> 
+                                <Link to={'/play'}>
+                                    <button
+                                    type='button'
+                                    className="welcomeForm--start--button"
+                                    // onClick={(event) => this.handleSubmit(event)}
+                                    >Start</button> 
+                                </Link>
                             </div>
                         </div>
                     </div>

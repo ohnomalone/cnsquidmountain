@@ -45,7 +45,8 @@ export class App extends React.Component {
     return (
       <Router>
         <div className="App_div">
-          <Route exact path="/" component={Game} />
+          <Route exact path="/" component={WelcomeForm} />
+          <Route exact path="/play" component={Game} />
         </div>
       </Router>
     )
