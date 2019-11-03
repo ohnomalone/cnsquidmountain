@@ -11,3 +11,7 @@ export const setPlayer = playerName => ({
 export const increaseRound = () => ({
     type: 'INCREASE_ROUND'
 })
+
+export const ramdomizeGameData = () ({
+    type: 'RANDOMIZE_GAME_DATA'
+})
