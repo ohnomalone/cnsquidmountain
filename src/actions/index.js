@@ -18,3 +18,8 @@ export const ramdomizeGameData = gameData => ({
     type: 'RANDOMIZE_GAME_DATA',
     gameData
 })
+
+export const setPrefixRoundData = gameData => ({
+    type: 'SET_PREFIX_ROUND_DATA',
+    gameData
+})

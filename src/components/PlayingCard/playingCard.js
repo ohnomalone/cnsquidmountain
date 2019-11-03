@@ -1,11 +1,14 @@
 import React from 'react'
 import './playingCard.css'
 
-const playingCard = ({ word }) => {
+export const PlayingCard = ({ prefix }) => {
+    console.log(prefix)
 
     return (
-        <div className="playing--card__div">
-            <p className="">{word}</p>
+        <div key={prefix.id} className="playing--card__div">
+            <p className="playing--card__p--text">{prefix.prefix}</p>
         </div>
     )
 }
+
+export default PlayingCard;

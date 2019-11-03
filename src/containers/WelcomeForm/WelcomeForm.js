@@ -33,8 +33,7 @@ export class WelcomeForm extends React.Component {
         return name.length > 0
     }
 
-    handleStart = event => {
-        console.log(this.props)
+    handleStart = () => {
         const { ramdomizeGameData,  gameData} = this.props
         ramdomizeGameData(gameData)
     }

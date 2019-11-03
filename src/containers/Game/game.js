@@ -6,15 +6,7 @@ import squidMountainLogo from '../../images/squid_mountain_logo.png'
 import Round from '../Round/round'
 
 export class Game extends React.Component {
-    constructor() {
-        super()
-        this.state = {
-            completedWords: [] // id's of current words will live here
-        }
-    }
-
-
-
+    
     render() {
         return (
             <div className="game--body">

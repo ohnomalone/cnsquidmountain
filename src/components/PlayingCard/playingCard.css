@@ -5,6 +5,10 @@
     align-content: center;
     border-radius: 10px;
     border: 2px solid black;
+    width: 80%;
+    background-color: #FFF;
+    margin-bottom: 2%;
+    height: 15%;
 }
 
 .selected--card {
@@ -19,4 +23,10 @@
 .playing--card__div:hover {
     cursor: pointer;
     box-shadow: 0 4px 8px 0 #505050, 0 6px 20px 1px #505050;
+}
+
+.playing--card__p--text {
+    color: black;
+    font-size: 45px;
+    font-weight: 700;
 }

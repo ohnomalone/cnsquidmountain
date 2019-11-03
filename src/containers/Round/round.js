@@ -1,6 +1,10 @@
 import React from 'react'
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux'
+import { getPrefixData } from '../../Utilities/helpers'
+import PlayingCard from '../../components/PlayingCard/playingCard'
+import { setPrefixRoundData } from '../../actions'
+
 import './round.css'
 import '../Game/game.css'
 
@@ -12,6 +16,24 @@ export class Round extends React.Component {
         }
     }
 
+    // getPrefixCurrentRoundData = () => {
+    //     console.log(getPrefixData(this.props.gameData))
+    //     this.setState({prefixCurrentRoundData: getPrefixData(this.props.gameData)})
+    // }
+
+    choosePrefixCards = () => {
+        this.props.currentRound ? console.log('THIS IS NOT ROUND 0') : console.log("THIS IS ROUND 0", (this.sortPrefix([...this.props.prefixRoundData, ...this.props.prefixRoundData])))
+        return this.props.currentRound ? (this.sortPrefix([...this.props.prefixRoundData, ...this.props.prefixRoundData])) : (this.props.prefixRoundData)
+    }
+
+    buildPrefixCard = () => {
+        return this.choosePrefixCards().map(prefix => <PlayingCard prefix={prefix}/>)
+    }
+
+    sortPrefix = prefixes => {
+        return prefixes.sort( (a,b) => 0.5 - Math.random())
+    }
+
     render() {
         return (
             <>
@@ -20,9 +42,10 @@ export class Round extends React.Component {
                     <section className="round__section">
                         <div className="round__section--play prefix-guess">
                             <p className="prefix--root--title">PREFIX</p>
+                            {this.buildPrefixCard()}
                         </div>
                         <div className="round__section--play root-guess">
-                        <p className="prefix--root--title">{this.props.currentRound ? 'ROOT' : 'MEANING'}</p> {/* make this word conditional on the round. If round 0 then meanings if not then ROOT conditional  */}
+                        <p className="prefix--root--title">{this.props.currentRound ? 'ROOT' : 'MEANING'}</p>
                         </div>
                     </section>
                 </main>
@@ -46,6 +69,10 @@ export class Round extends React.Component {
     }
 }
 
-const matStateToProps = ({ currentRound }) => ({ currentRound})
+const matStateToProps = ({ prefixRoundData, currentRound, gameData }) => ({ prefixRoundData, currentRound, gameData})
 
-export default connect(matStateToProps, null)(Round)
+const mapDispatchToProps = dispatch => (bindActionCreators({
+    setPrefixRoundData
+  }, dispatch))
+
+export default connect(matStateToProps, mapDispatchToProps)(Round)
