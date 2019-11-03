@@ -1,10 +1,13 @@
-export const wordFetchCleaner = (prefix, fetchedWord) => {
+export const wordFetchCleaner = (prefix, fetchedWord, id, num) => {
+    console.log(prefix.prefix, num, fetchedWord)
     return ({
         word: fetchedWord.word,
         definition: fetchedWord.results[0].definition,
         partOfSpeech: fetchedWord.results[0].partOfSpeech,
-        prefix,
-        rootWord: createRootWord(fetchedWord.syllables.list)
+        prefix: prefix.prefix,
+        prefixMeaning:prefix.meaning,
+        rootWord: createRootWord(fetchedWord.syllables.list),
+        id
     })
 }
 
@@ -13,3 +16,8 @@ const createRootWord = (rootsyllables) => {
     return rootsyllables.join('')
 }
 
+export const getPrefixData = (gameData) => {
+    return gameData.map( array => {
+        return {prefix: array[0].prefix, id: array[0].id}
+        })
+}

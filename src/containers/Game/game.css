@@ -3,9 +3,9 @@
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-areas: 'header header header' 'main main aside';
     height: 100%;
-    width: 100vw;
-    /* background-color: #46424D; */
+    /* width: 100vw; */
     color: #FFF;
+    width: 100%;
 }
 
 header {
@@ -19,7 +19,6 @@ header {
 main {
  grid-area: main;
  border: 1px solid red;
- /* background-color: #2B2733; */
  padding: 0 20px 20px 20px;
  height: 90vh;
 }
@@ -27,13 +26,17 @@ main {
 aside {
  grid-area: aside;
  border: 1px solid red;
- /* background-color: #2B2733; */
 }
 
-.game--name--startover,
-.game--logo--title {
+.game--name--startover {
     display: flex;
     align-items: center;
+}
+
+.game--logo--title__div {
+    display: flex;
+    align-items: center;
+    width: 70%;
 }
 
 .game--logo {
@@ -57,4 +60,8 @@ aside {
     color: orange;
     text-shadow: 2px 2px black;
     font-size: 30px;
+}
+
+.game--startover--button {
+    
 }

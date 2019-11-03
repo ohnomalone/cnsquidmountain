@@ -1,7 +1,8 @@
 import React from 'react'
 import { bindActionCreators } from 'redux';
+import { Link } from "react-router-dom";
 import { connect } from 'react-redux'
-import { setPlayer } from '../../actions'
+import { setPlayer, ramdomizeGameData } from '../../actions'
 import './WelcomeForm.css'
 
 import squidMountainLogo from '../../images/squid_mountain_logo.png'
@@ -13,7 +14,6 @@ export class WelcomeForm extends React.Component {
             name: ''
         };
     };
-    
     
     handleChange = event => {
         this.setState({ [event.target.name]: event.target.value })
@@ -32,6 +32,12 @@ export class WelcomeForm extends React.Component {
         const { name } = this.state
         return name.length > 0
     }
+
+    handleStart = () => {
+        const { ramdomizeGameData,  gameData} = this.props
+        ramdomizeGameData(gameData)
+    }
+
 
     render() {
         const isEnabled =  this.canBeSubmitted();
@@ -54,11 +60,13 @@ export class WelcomeForm extends React.Component {
                         <div className={ this.props.currentPlayer ? "start__button--wrapper" : "display-none"} >
                             <div className="start__button--border">
                                 <div className="start__button--pulse" ></div>
-                                <button
-                                type='button'
-                                className="welcomeForm--start--button"
-                                // onClick={(event) => this.handleSubmit(event)}
-                                >Start</button> 
+                                <Link to='/play'>
+                                    <button
+                                    type='button'
+                                    className="welcomeForm--start--button"
+                                    onClick={this.handleStart}
+                                    >Start</button> 
+                                </Link>
                             </div>
                         </div>
                     </div>
@@ -68,10 +76,11 @@ export class WelcomeForm extends React.Component {
     }
 };
 
-const matStateToProps = ({ currentPlayer }) => ({ currentPlayer})
+const matStateToProps = ({ currentPlayer, gameData }) => ({ currentPlayer, gameData})
 
 const mapDispatchToProps = dispatch => (bindActionCreators ({
-    setPlayer
+    setPlayer,
+    ramdomizeGameData
 }, dispatch))
 
 export default connect(matStateToProps, mapDispatchToProps)(WelcomeForm);
