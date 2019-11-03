@@ -2,7 +2,7 @@ import React from 'react'
 import { bindActionCreators } from 'redux';
 import { Link } from "react-router-dom";
 import { connect } from 'react-redux'
-import { setPlayer } from '../../actions'
+import { setPlayer, ramdomizeGameData } from '../../actions'
 import './WelcomeForm.css'
 
 import squidMountainLogo from '../../images/squid_mountain_logo.png'
@@ -33,6 +33,14 @@ export class WelcomeForm extends React.Component {
         return name.length > 0
     }
 
+    handleStart = event => {
+        event.preventDefault();
+        console.log(this.props)
+        const { ramdomizeGameData,  gameData} = this.props
+        ramdomizeGameData(gameData)
+    }
+
+
     render() {
         const isEnabled =  this.canBeSubmitted();
         return(
@@ -58,7 +66,7 @@ export class WelcomeForm extends React.Component {
                                     <button
                                     type='button'
                                     className="welcomeForm--start--button"
-                                    // onClick={(event) => this.handleSubmit(event)}
+                                    onClick={(event) => this.handleStart(event)}
                                     >Start</button> 
                                 </Link>
                             </div>
@@ -70,10 +78,11 @@ export class WelcomeForm extends React.Component {
     }
 };
 
-const matStateToProps = ({ currentPlayer }) => ({ currentPlayer})
+const matStateToProps = ({ currentPlayer, gameData }) => ({ currentPlayer, gameData})
 
 const mapDispatchToProps = dispatch => (bindActionCreators ({
-    setPlayer
+    setPlayer,
+    ramdomizeGameData
 }, dispatch))
 
 export default connect(matStateToProps, mapDispatchToProps)(WelcomeForm);

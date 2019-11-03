@@ -3,7 +3,8 @@ export const gameData = (state = [], action) => {
         case 'ADD_FETCHED_WORDS':
             return action.fetchedData
         case 'RANDOMIZE_GAME_DATA':
-            return action.gameData.map( prefix => prefix.wordBank.sort((a,b) => 0.5 - Math.random()))
+            let shuffle = action.gameData.map( array => array.sort((a,b) => 0.5 - Math.random()))
+            return shuffle
         default:
             return state
     }
