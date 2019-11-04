@@ -7,13 +7,17 @@
     border: 2px solid black;
     width: 80%;
     background-color: #FFF;
-    margin-bottom: 2%;
+    margin-bottom: 5%;
     height: 16%;
 }
 
 .selected--card {
-    border: 2px solid blue;
+    border: 5px solid blue;
     box-shadow: 0 4px 8px 0 #505050, 0 6px 20px 1px #505050;
+}
+
+.hide--card__div {
+    display: none;
 }
 
 .incorrect--card {
