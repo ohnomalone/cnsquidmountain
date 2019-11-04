@@ -95,9 +95,7 @@ export class Round extends React.Component {
 const matStateToProps = ({ prefixMeaningData, prefixRoundData, currentRound, gameData, column1Guess, column2Guess }) => ({ prefixMeaningData, prefixRoundData, currentRound, gameData, column1Guess, column2Guess})
 
 export const mapDispatchToProps = dispatch => (bindActionCreators({
-  setPrefixRoundData,
-  setColumn1Guess,
-  setColumn2Guess
+  setPrefixRoundData
 }, dispatch))
 
 export default connect(matStateToProps, mapDispatchToProps)(Round)
