@@ -59,7 +59,7 @@
 .root-guess {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    /* justify-content: space-evenly; */
     align-items: center;
     align-content: flex-start;
 }
