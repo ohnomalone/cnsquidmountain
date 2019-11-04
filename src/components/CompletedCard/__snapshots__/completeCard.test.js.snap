@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`completeCard Should match the snapshot with all data passed in correctly 1`] = `
+<div
+  className="completedWord__container"
+  key="1"
+>
+  <div
+    className="compltedword--word--definition"
+  >
+    <div
+      className="compltedword--word--pos"
+    >
+      <p
+        className="completedWord__p--word"
+      >
+        e/ex
+      </p>
+    </div>
+  </div>
+  <p
+    className="completedWord__p--pos"
+  >
+    e/ex
+  </p>
+</div>
+`;

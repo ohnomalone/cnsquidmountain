@@ -29,13 +29,3 @@ export const setPrefixMeaningData = gameData => ({
     type: 'SET_PREFIX_MEANING_DATA',
     gameData
 })
-
-export const setColumn1Guess = num => ({
-    type: 'SET_COLUMN_1_GUESS',
-    num
-})
-
-export const setColumn2Guess = num => ({
-    type: 'SET_COLUMN_2_GUESS',
-    num
-})

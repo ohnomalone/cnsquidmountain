@@ -36,7 +36,7 @@ export class App extends React.Component {
         console.log('error')
       }
     }
-    // addFetchedWords( await fetchWordBank())
+    addFetchedWords( await fetchWordBank())
     setPrefixRoundData(gameData)
     setPrefixMeaningData(gameData)
   };
@@ -53,7 +53,7 @@ export class App extends React.Component {
   }
 }
 
-const matStateToProps = ({ gameData }) => ({ gameData})
+const mapStateToProps = ({ gameData }) => ({ gameData})
 
 const mapDispatchToProps = dispatch => (bindActionCreators({
   addFetchedWords,
@@ -61,4 +61,4 @@ const mapDispatchToProps = dispatch => (bindActionCreators({
   setPrefixMeaningData
 }, dispatch))
 
-export default connect(matStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

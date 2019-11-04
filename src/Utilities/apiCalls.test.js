@@ -317,9 +317,9 @@ describe('fetchWord', () => {
 
   it('Should call fetch with the correct URL', () => {
     window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
-          ok: true,
-          json: () => Promise.resolve(mockResponse)
-        }))
+      ok: true,
+      json: () => Promise.resolve(mockResponse)
+    }))
     fetchWord(mockWord)
     expect(window.fetch).toHaveBeenCalledWith(`https://wordsapiv1.p.mashape.com/words/${mockWord}`, mockOptions)
   })
