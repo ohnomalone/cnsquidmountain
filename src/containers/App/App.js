@@ -29,14 +29,13 @@ export class App extends React.Component {
     
     const fetchThisWord = async (word) => {
       try {
-        console.log(word)
         const getWord = await fetchWord(word)
         return getWord
       } catch {
         console.log('error')
       }
     }
-    // addFetchedWords( await fetchWordBank())
+    addFetchedWords( await fetchWordBank())
     setPrefixRoundData(gameData)
     setPrefixMeaningData(gameData)
   };
@@ -53,12 +52,12 @@ export class App extends React.Component {
   }
 }
 
-const matStateToProps = ({ gameData }) => ({ gameData})
+const mapStateToProps = ({ gameData }) => ({ gameData})
 
-const mapDispatchToProps = dispatch => (bindActionCreators({
+export const mapDispatchToProps = (dispatch) => (bindActionCreators({
   addFetchedWords,
   setPrefixRoundData,
   setPrefixMeaningData
 }, dispatch))
 
-export default connect(matStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

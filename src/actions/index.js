@@ -1,21 +1,21 @@
 import gameData from "../gameData/gameData"
 
-export const addFetchedWords = fetchedData => ({
+export const addFetchedWords = (fetchedData) => ({
     type: 'ADD_FETCHED_WORDS',
     fetchedData
 })
 
-export const setPlayer = playerName => ({
+export const setPlayer = (playerName) => ({
     type: 'SET_PLAYER',
     playerName
 })
 
-export const increaseRound = round => ({
+export const increaseRound = (round) => ({
     type: 'INCREASE_ROUND',
     round
 })
 
-export const ramdomizeGameData = gameData => ({
+export const ramdomizeGameData = (gameData) => ({
     type: 'RANDOMIZE_GAME_DATA',
     gameData
 })
@@ -25,17 +25,7 @@ export const setPrefixRoundData = gameData => ({
     gameData
 })
 
-export const setPrefixMeaningData = gameData => ({
+export const setPrefixMeaningData = (gameData) => ({
     type: 'SET_PREFIX_MEANING_DATA',
     gameData
-})
-
-export const setColumn1Guess = num => ({
-    type: 'SET_COLUMN_1_GUESS',
-    num
-})
-
-export const setColumn2Guess = num => ({
-    type: 'SET_COLUMN_2_GUESS',
-    num
 })

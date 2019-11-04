@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import { getPrefixData } from '../../Utilities/helpers'
 import PlayingCard from '../../components/PlayingCard/playingCard'
 import CompletedWarmUpCard from '../../components/CompletedCard/completedCard'
-import { setPrefixRoundData, setColumn1Guess, setColumn2Guess } from '../../actions'
+import { setPrefixRoundData } from '../../actions'
 
 import './round.css'
 import '../Game/game.css'
@@ -94,10 +94,8 @@ export class Round extends React.Component {
 
 const matStateToProps = ({ prefixMeaningData, prefixRoundData, currentRound, gameData, column1Guess, column2Guess }) => ({ prefixMeaningData, prefixRoundData, currentRound, gameData, column1Guess, column2Guess})
 
-const mapDispatchToProps = dispatch => (bindActionCreators({
-  setPrefixRoundData,
-  setColumn1Guess,
-  setColumn2Guess
+export const mapDispatchToProps = dispatch => (bindActionCreators({
+  setPrefixRoundData
 }, dispatch))
 
 export default connect(matStateToProps, mapDispatchToProps)(Round)

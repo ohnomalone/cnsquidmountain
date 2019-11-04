@@ -1,0 +1,86 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Welcome should match the snapshot 1`] = `
+<div
+  className="welcomeForm__div"
+>
+  <h1
+    className="welcomeForm--title"
+  >
+    Squid Mountain
+  </h1>
+  <img
+    alt="Squid Mountain Logo"
+    className="large_logo"
+    src="squid_mountain_logo.png"
+  />
+  <form
+    className="welcomeForm"
+  >
+    <label
+      className="welcomeFormName__label"
+      htmlFor="name"
+    >
+      Mountaineer's Name:
+    </label>
+    <input
+      className="welcomeFormName__input"
+      id="name"
+      name="name"
+      onChange={[Function]}
+      placeholder="Enter Name Here"
+      type="text"
+      value=""
+    />
+    <button
+      className="welcomeFormName__button"
+      disabled={true}
+      onClick={[Function]}
+      type="button"
+    >
+      Enter
+    </button>
+    <p
+      className="display-none"
+    >
+      Welcome,
+    </p>
+    <p
+      className="display-none"
+    >
+      !
+    </p>
+    <div
+      className="ready__div"
+    >
+      <p
+        className="display-none"
+      >
+        Ready to go?
+      </p>
+      <div
+        className="display-none"
+      >
+        <div
+          className="start__button--border"
+        >
+          <div
+            className="start__button--pulse"
+          />
+          <Link
+            to="/play"
+          >
+            <button
+              className="welcomeForm--start--button"
+              onClick={[Function]}
+              type="button"
+            >
+              Start
+            </button>
+          </Link>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;
