@@ -31,4 +31,18 @@ describe('mapDispatchToProps', () => {
 
     expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
   })
+
+  it('calls dispatch with ramdomizeGameData', () => {
+    const mockDispatch = jest.fn()
+    const mockaction = jest.fn()
+    const wrapper = shallow(<WelcomeForm ramdomizeGameData={mockaction} />)
+    const mockFetchedData = [{}, {}, {}, {}]
+    const actionToDispatch = ramdomizeGameData('RANDOMIZE_GAME_DATA', mockFetchedData)
+
+    const mappedProps = mapDispatchToProps(mockDispatch)
+
+    mappedProps.ramdomizeGameData('RANDOMIZE_GAME_DATA', mockFetchedData)
+
+    expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
+  })
 })
