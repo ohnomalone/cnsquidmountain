@@ -310,24 +310,21 @@ describe('fetchWord', () => {
     method: 'GET',
     headers: {
       'X-Mashape-Key': 'dbc73f3956mshcf26537552ba173p1081edjsn50c9347e0b06',
-      'Accept' : 'application/json'
+      Accept: 'application/json'
     }
   }
   const mockWord = 'subject'
 
   it('Should call fetch with the correct URL', () => {
-    window.fetch = jest.fn().mockImplementation(() => {
-        return Promise.resolve({
+    window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
           ok: true,
           json: () => Promise.resolve(mockResponse)
-        })
-      })
-      fetchWord(mockWord)
-      expect(window.fetch).toHaveBeenCalledWith(`https://wordsapiv1.p.mashape.com/words/${mockWord}`, mockOptions)
-  });
+        }))
+    fetchWord(mockWord)
+    expect(window.fetch).toHaveBeenCalledWith(`https://wordsapiv1.p.mashape.com/words/${mockWord}`, mockOptions)
+  })
 
   it('should return a word object', () => {
-    expect(fetchWord(mockWord)).resolves.toEqual(mockResponse);
-  });
-
+    expect(fetchWord(mockWord)).resolves.toEqual(mockResponse)
+  })
 })
