@@ -15,17 +15,17 @@ export class Round extends React.Component {
             completedWords: [],
             column1: null,
             column2: null, 
-            // column1False, 
-            // cplumne2False
+            column1False: null, 
+            column2False: null
         }
     }
 
     buildPrefixCards = () => {
-            return (this.props.prefixRoundData.map(prefix => <PlayingCard key={prefix.id} prefix={prefix} handleChange={this.handleChange} value={'column1'} column={this.state.column1} completedWords={this.state.completedWords}/>))
+            return (this.props.prefixRoundData.map(prefix => <PlayingCard key={prefix.id} prefix={prefix} handleChange={this.handleChange} value={'column1'} column={this.state.column1} completedWords={this.state.completedWords} incorrect={this.state.column1False}/>))
     }
 
     buildWarmUpCards = () => {
-            return (this.props.prefixMeaningData.map(prefix => <PlayingCard key={prefix.id} prefix={prefix} handleChange={this.handleChange} value={'column2'} column={this.state.column2} completedWords={this.state.completedWords}/>))
+            return (this.props.prefixMeaningData.map(prefix => <PlayingCard key={prefix.id} prefix={prefix} handleChange={this.handleChange} value={'column2'} column={this.state.column2} completedWords={this.state.completedWords} incorrect={this.state.column2False}/>))
     }
 
     handleChange = event => {
@@ -41,13 +41,14 @@ export class Round extends React.Component {
        if(this.state.column1 === this.state.column2) {
            setTimeout( () => {
                this.setState({column1: null, completedWords: [...this.state.completedWords, parseInt(this.state.column1)], column2: null })
+            }, 700)
+       } else if(this.state.column1 && this.state.column2){
+        this.setState({column1False: this.state.column1 , column2False: this.state.column2}, () => {
+            setTimeout( () => {
+                this.setState({column1: null, column2: null, column1False: 0, column2False: 0})
             }, 1000)
-       } 
-    //    else if(this.state.column1 && this.state.column2){
-
-    //    }
-
-        // return this.props.column1Guess === this.props.column2Guess ? true : false
+        })
+       }
     }
 
     render() {
