@@ -1,5 +1,4 @@
 import React from 'react'
-import './completedCard.css'
 
 // export const CompletedCard = ({ round }) => (
 //                 <div className="insertCompletedWordsHere">
@@ -19,8 +18,7 @@ import './completedCard.css'
 export const CompletedWarmUpCard = ({ prefix, meaning }) => {
     console.log("I SHOUDL BE APPENDING TO THE DOM", prefix, meaning)
   return (
-        <div className="insertCompletedWordsHere">
-            <div className="completedWord__container" >
+            <div key={prefix.id} className="completedWord__container" >
                 <div className="compltedword--word--definition">
                     <div className="compltedword--word--pos">
                         <p className="completedWord__p--word">{prefix.prefix}</p>
@@ -29,7 +27,6 @@ export const CompletedWarmUpCard = ({ prefix, meaning }) => {
                     <p className="completedWord__p--pos">{meaning.prefix}</p>
                     {/* <p className="completedWord__p--sentence">The young girl often wondered how NASA was able to propel shuttles into space.</p> */}
             </div>
-        </div>
   )
 }
 
