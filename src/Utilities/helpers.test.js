@@ -1,5 +1,7 @@
 import React from 'react';
-import {wordFetchCleaner} from './helpers';
+import { wordFetchCleaner } from './helpers';
+import { createRootWord } from './helpers';
+
 
 describe('wordFetchCleaner', () => {
     it('Should clean the data coming in from the fetch', () => {
@@ -328,4 +330,19 @@ describe('wordFetchCleaner', () => {
           expect(result).toEqual(expected)
         
     })
+})
+
+describe('createRootWord', () => {
+    it('Should be able to make a root word from syllables', () => {
+        
+        let mockSyllables = ["sub", "ject"]
+
+        const expected = "ject"
+
+        const result = createRootWord(mockSyllables)
+
+        expect(result).toEqual(expected)
+
+    })
+
 })

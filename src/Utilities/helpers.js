@@ -10,7 +10,7 @@ export const wordFetchCleaner = (prefix, fetchedWord, id, num) => {
     })
 }
 
-const createRootWord = (rootsyllables) => {
+export const createRootWord = (rootsyllables) => {
     rootsyllables.shift()
     return rootsyllables.join('')
 }
