@@ -16,6 +16,10 @@
     box-shadow: 0 4px 8px 0 #505050, 0 6px 20px 1px #505050;
 }
 
+.hide--card__div {
+    display: none;
+}
+
 .incorrect--card {
     border: 2px solid red;
 }

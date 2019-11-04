@@ -19,15 +19,15 @@ export class Round extends React.Component {
     }
 
     buildPrefixCards = () => {
-            return (this.props.prefixRoundData.map(prefix => <PlayingCard key={prefix.id} prefix={prefix} handleChange={this.handleChange} value={'column1'} column={this.state.column1}/>))
+            return (this.props.prefixRoundData.map(prefix => <PlayingCard key={prefix.id} prefix={prefix} handleChange={this.handleChange} value={'column1'} column={this.state.column1} completedWords={this.state.completedWords}/>))
     }
 
     buildWarmUpCards = () => {
-            return (this.props.prefixMeaningData.map(prefix => <PlayingCard key={prefix.id} prefix={prefix} handleChange={this.handleChange} value={'column2'} column={this.state.column2}/>))
+            return (this.props.prefixMeaningData.map(prefix => <PlayingCard key={prefix.id} prefix={prefix} handleChange={this.handleChange} value={'column2'} column={this.state.column2} completedWords={this.state.completedWords}/>))
     }
 
     handleChange = event => {
-        this.setState({[event.target.dataset.value]: event.target.dataset.id}, console.log(this.checkForMatch()))
+        this.setState({[event.target.dataset.value]: event.target.dataset.id}, () => this.checkForMatch())
         
     }
 
@@ -36,7 +36,13 @@ export class Round extends React.Component {
     // }
 
     checkForMatch = () => {
-        return this.state.column1 === this.state.column2 ? true : false
+       if(this.state.column1 === this.state.column2) {
+           console.log(this.state.column1)
+           this.setState({completedWords: [...this.state.completedWords, this.state.column1]})
+           setTimeout( () => {
+               this.setState({column1: null, column2: null })
+            }, 1000)
+       }
 
         // return this.props.column1Guess === this.props.column2Guess ? true : false
     }
