@@ -9,27 +9,27 @@ import './round.css'
 import '../Game/game.css'
 
 export class Round extends React.Component {
-    constructor() {
-        super()
-        this.state = {
-            completedWords: [],
-            column1: null,
-            column2: null, 
-            column1False: null, 
-            column2False: null
-        }
+  constructor() {
+    super()
+    this.state = {
+      completedWords: [],
+      column1: null,
+      column2: null,
+      column1False: null,
+      column2False: null
     }
+  }
 
     buildPrefixCards = () => {
-            return (this.props.prefixRoundData.map(prefix => <PlayingCard key={prefix.id} prefix={prefix} handleChange={this.handleChange} value={'column1'} column={this.state.column1} completedWords={this.state.completedWords} incorrect={this.state.column1False}/>))
+      return (this.props.prefixRoundData.map((prefix) => <PlayingCard key={prefix.id} prefix={prefix} handleChange={this.handleChange} value="column1" column={this.state.column1} completedWords={this.state.completedWords} incorrect={this.state.column1False}/>))
     }
 
     buildWarmUpCards = () => {
-            return (this.props.prefixMeaningData.map(prefix => <PlayingCard key={prefix.id} prefix={prefix} handleChange={this.handleChange} value={'column2'} column={this.state.column2} completedWords={this.state.completedWords} incorrect={this.state.column2False}/>))
+      return (this.props.prefixMeaningData.map((prefix) => <PlayingCard key={prefix.id} prefix={prefix} handleChange={this.handleChange} value="column2" column={this.state.column2} completedWords={this.state.completedWords} incorrect={this.state.column2False}/>))
     }
 
-    handleChange = event => {
-        this.setState({[event.target.dataset.value]: event.target.dataset.id}, () => this.checkForMatch())
+    handleChange = (event) => {
+      this.setState({[event.target.dataset.value]: event.target.dataset.id}, () => this.checkForMatch())
         
     }
 
@@ -38,22 +38,22 @@ export class Round extends React.Component {
     // }
 
     checkForMatch = () => {
-       if(this.state.column1 === this.state.column2) {
-           setTimeout( () => {
-               this.setState({column1: null, completedWords: [...this.state.completedWords, parseInt(this.state.column1)], column2: null })
-            }, 700)
-       } else if(this.state.column1 && this.state.column2){
+      if(this.state.column1 === this.state.column2) {
+        setTimeout( () => {
+          this.setState({column1: null, completedWords: [...this.state.completedWords, parseInt(this.state.column1)], column2: null })
+        }, 700)
+      } else if(this.state.column1 && this.state.column2) {
         this.setState({column1False: this.state.column1 , column2False: this.state.column2}, () => {
-            setTimeout( () => {
-                this.setState({column1: null, column2: null, column1False: 0, column2False: 0})
-            }, 1000)
+          setTimeout( () => {
+            this.setState({column1: null, column2: null, column1False: 0, column2False: 0})
+          }, 1000)
         })
-       }
+      }
     }
 
     render() {
-        return (
-            <>
+      return (
+        <>
                 <main className="game__main">
                     <h2>Round</h2>
                     <section className="round__section">
@@ -82,17 +82,17 @@ export class Round extends React.Component {
                         </div>
                     </div>
                 </aside>
-            </>
-        )
+        </>
+      )
     }
 }
 
 const matStateToProps = ({ prefixMeaningData, prefixRoundData, currentRound, gameData, column1Guess, column2Guess }) => ({ prefixMeaningData, prefixRoundData, currentRound, gameData, column1Guess, column2Guess})
 
 const mapDispatchToProps = dispatch => (bindActionCreators({
-    setPrefixRoundData,
-    setColumn1Guess,
-    setColumn2Guess
-  }, dispatch))
+  setPrefixRoundData,
+  setColumn1Guess,
+  setColumn2Guess
+}, dispatch))
 
 export default connect(matStateToProps, mapDispatchToProps)(Round)
