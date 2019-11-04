@@ -10,8 +10,9 @@ export const setPlayer = playerName => ({
     playerName
 })
 
-export const increaseRound = () => ({
-    type: 'INCREASE_ROUND'
+export const increaseRound = round => ({
+    type: 'INCREASE_ROUND',
+    round
 })
 
 export const ramdomizeGameData = gameData => ({
