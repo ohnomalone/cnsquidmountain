@@ -1,8 +1,10 @@
+/* eslint-disable no-console */
 import React from 'react'
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux'
 import { getPrefixData } from '../../Utilities/helpers'
 import PlayingCard from '../../components/PlayingCard/playingCard'
+import CompletedWarmUpCard from '../../components/CompletedCard/completedCard'
 import { setPrefixRoundData, setColumn1Guess, setColumn2Guess } from '../../actions'
 
 import './round.css'
@@ -29,21 +31,32 @@ export class Round extends React.Component {
     }
 
     handleChange = (event) => {
-      this.setState({[event.target.dataset.value]: event.target.dataset.id}, () => this.checkForMatch())
-        
+      this.setState({ [event.target.dataset.value]: event.target.dataset.id },
+        () => this.checkForMatch())
     }
 
-    // removeHightLights = () => {
+  buildCompletedCards = () => {
+    return this.props.currentRound ? this.buildroundUpCompletedCards() : this.buildWarmUpCompletedCards()
+  }
 
-    // }
+  buildWarmUpCompletedCards = () => {
+
+   const meamningDataSorted = this.props.prefixMeaningData.filter( prefix => {
+        return this.state.completedWords.includes(prefix.id)
+     }).sort((a, b) => a.id - b.id)
+    const prefixRoundDataSorted = this.props.prefixRoundData.filter( prefix => {
+       return this.state.completedWords.includes(prefix.id)
+    }).sort((a, b) => a.id - b.id)
+    return prefixRoundDataSorted.map( (correctAnswer, i) => <CompletedWarmUpCard prefix={correctAnswer} meaning={meamningDataSorted[i]} />)
+  }
 
     checkForMatch = () => {
-      if(this.state.column1 === this.state.column2) {
+      if (this.state.column1 === this.state.column2) {
         setTimeout( () => {
           this.setState({column1: null, completedWords: [...this.state.completedWords, parseInt(this.state.column1)], column2: null })
         }, 700)
       } else if(this.state.column1 && this.state.column2) {
-        this.setState({column1False: this.state.column1 , column2False: this.state.column2}, () => {
+        this.setState({column1False: this.state.column1, column2False: this.state.column2}, () => {
           setTimeout( () => {
             this.setState({column1: null, column2: null, column1False: 0, column2False: 0})
           }, 1000)
@@ -69,18 +82,7 @@ export class Round extends React.Component {
                 </main>
                 <aside className="completed--words__aside">
                     <h2>Completed Words</h2>
-                    <div className="insertCompletedWordsHere">
-                        <div className="completedWord__container" >
-                            <div className="compltedword--word--definition">
-                                <div className="compltedword--word--pos">
-                                    <p className="completedWord__p--word">Propel</p>
-                                    <p className="completedWord__p--pos">(verb)</p>
-                                </div>
-                                <p className="completedWord__p--def">definition</p>
-                            </div>
-                                <p className="completedWord__p--sentence">The young girl often wondered how NASA was able to propel shuttles into space.</p>
-                        </div>
-                    </div>
+                    {this.buildCompletedCards()}
                 </aside>
         </>
       )
