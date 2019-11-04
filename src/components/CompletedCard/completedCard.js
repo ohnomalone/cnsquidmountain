@@ -16,7 +16,6 @@ import React from 'react'
 // )
 
 export const CompletedWarmUpCard = ({ prefix, meaning }) => {
-    console.log("I SHOUDL BE APPENDING TO THE DOM", prefix, meaning)
   return (
             <div key={prefix.id} className="completedWord__container" >
                 <div className="compltedword--word--definition">

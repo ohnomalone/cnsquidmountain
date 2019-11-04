@@ -18,16 +18,17 @@ export class Round extends React.Component {
       column1: null,
       column2: null,
       column1False: null,
-      column2False: null
+      column2False: null,
+      currentCorrect: null
     }
   }
 
     buildPrefixCards = () => {
-      return (this.props.prefixRoundData.map((prefix) => <PlayingCard key={prefix.id} prefix={prefix} handleChange={this.handleChange} value="column1" column={this.state.column1} completedWords={this.state.completedWords} incorrect={this.state.column1False}/>))
+      return (this.props.prefixRoundData.map((prefix) => <PlayingCard key={prefix.id} prefix={prefix} handleChange={this.handleChange} value="column1" column={this.state.column1} completedWords={this.state.completedWords} incorrect={this.state.column1False} currentCorrect={this.state.currentCorrect}/>))
     }
 
     buildWarmUpCards = () => {
-      return (this.props.prefixMeaningData.map((prefix) => <PlayingCard key={prefix.id} prefix={prefix} handleChange={this.handleChange} value="column2" column={this.state.column2} completedWords={this.state.completedWords} incorrect={this.state.column2False}/>))
+      return (this.props.prefixMeaningData.map((prefix) => <PlayingCard key={prefix.id} prefix={prefix} handleChange={this.handleChange} value="column2" column={this.state.column2} completedWords={this.state.completedWords} incorrect={this.state.column2False} currentCorrect={this.state.currentCorrect}/>))
     }
 
     handleChange = (event) => {
@@ -41,20 +42,22 @@ export class Round extends React.Component {
 
   buildWarmUpCompletedCards = () => {
 
-   const meamningDataSorted = this.props.prefixMeaningData.filter( prefix => {
-        return this.state.completedWords.includes(prefix.id)
-     }).sort((a, b) => a.id - b.id)
+    const meamningDataSorted = this.props.prefixMeaningData.filter( prefix => {
+      return this.state.completedWords.includes(prefix.id)
+    }).sort((a, b) => a.id - b.id)
     const prefixRoundDataSorted = this.props.prefixRoundData.filter( prefix => {
-       return this.state.completedWords.includes(prefix.id)
+      return this.state.completedWords.includes(prefix.id)
     }).sort((a, b) => a.id - b.id)
     return prefixRoundDataSorted.map( (correctAnswer, i) => <CompletedWarmUpCard prefix={correctAnswer} meaning={meamningDataSorted[i]} />)
   }
 
     checkForMatch = () => {
       if (this.state.column1 === this.state.column2) {
-        setTimeout( () => {
-          this.setState({column1: null, completedWords: [...this.state.completedWords, parseInt(this.state.column1)], column2: null })
-        }, 700)
+        this.setState({ currentCorrect: this.state.column1 }, () => {
+          setTimeout(() => {
+            this.setState({ column1: null, completedWords: [...this.state.completedWords, parseInt(this.state.column1)], column2: null, currentCorrect: null })
+          }, 700)
+        })
       } else if(this.state.column1 && this.state.column2) {
         this.setState({column1False: this.state.column1, column2False: this.state.column2}, () => {
           setTimeout( () => {
