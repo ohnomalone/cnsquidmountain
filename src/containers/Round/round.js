@@ -38,9 +38,9 @@ export class Round extends React.Component {
     checkForMatch = () => {
        if(this.state.column1 === this.state.column2) {
            console.log(this.state.column1)
-           this.setState({completedWords: [...this.state.completedWords, this.state.column1]})
+        //    this.setState({completedWords: [...this.state.completedWords, parseInt(this.state.column1)]})
            setTimeout( () => {
-               this.setState({column1: null, column2: null })
+               this.setState({column1: null, completedWords: [...this.state.completedWords, parseInt(this.state.column1)], column2: null })
             }, 1000)
        }
 
