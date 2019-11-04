@@ -10,7 +10,6 @@ By:
 * [Future Iterations](#Future-Iterations)
 * [Features](#Features)
 * [Try It Out](#Try-It-Out)
-* [Why'd-I-Do-This?](Why'd-I-Do-This?)
 * [API's used](API's-used)
 * [Link to Project Management Board](Link-to-Project-Management-Board)
 
