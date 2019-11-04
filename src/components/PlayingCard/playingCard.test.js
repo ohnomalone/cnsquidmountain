@@ -1,7 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import PlayingCard from './playingCard';
-import { isMainThread } from 'worker_threads';
 
 describe('PlayingCard', () => {
     it('Should match the snapshot with all data passed in correctly', () => {

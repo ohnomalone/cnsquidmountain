@@ -1,5 +1,4 @@
 export const wordFetchCleaner = (prefix, fetchedWord, id, num) => {
-    console.log(prefix.prefix, num, fetchedWord)
     return ({
         word: fetchedWord.word,
         definition: fetchedWord.results[0].definition,
