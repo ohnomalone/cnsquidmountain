@@ -13,19 +13,16 @@ header {
  display: flex;
  justify-content: space-between;
  height: 10vh;
- border: 1px solid red;
 }
 
 main {
  grid-area: main;
- border: 1px solid red;
  padding: 0 20px 20px 20px;
  height: 90vh;
 }
 
 aside {
  grid-area: aside;
- border: 1px solid red;
 }
 
 .game--name--startover {
