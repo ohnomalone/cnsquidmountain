@@ -29,7 +29,6 @@ export class App extends React.Component {
     
     const fetchThisWord = async (word) => {
       try {
-        console.log(word)
         const getWord = await fetchWord(word)
         return getWord
       } catch {
@@ -55,7 +54,7 @@ export class App extends React.Component {
 
 const mapStateToProps = ({ gameData }) => ({ gameData})
 
-const mapDispatchToProps = dispatch => (bindActionCreators({
+export const mapDispatchToProps = (dispatch) => (bindActionCreators({
   addFetchedWords,
   setPrefixRoundData,
   setPrefixMeaningData
