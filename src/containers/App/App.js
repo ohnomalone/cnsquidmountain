@@ -36,7 +36,6 @@ export class App extends React.Component {
         console.log('error')
       }
     }
-    // console.log( await fetchedWordBank)
     // addFetchedWords( await fetchWordBank())
     setPrefixRoundData(gameData)
     setPrefixMeaningData(gameData)

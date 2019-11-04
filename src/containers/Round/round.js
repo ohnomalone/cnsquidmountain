@@ -9,26 +9,26 @@ import './round.css'
 import '../Game/game.css'
 
 export class Round extends React.Component {
-    // constructor() {
-    //     super()
-    //     this.state = {
-    //         completedWords: [],
-    //     }
-    // }
+    constructor() {
+        super()
+        this.state = {
+            completedWords: [],
+            column1: null,
+            column2: null
+        }
+    }
 
     buildPrefixCards = () => {
-            return (this.props.prefixRoundData.map(prefix => <PlayingCard key={prefix.id} prefix={prefix} handleChange={this.handleChange} value={'column1'}/>))
+            return (this.props.prefixRoundData.map(prefix => <PlayingCard key={prefix.id} prefix={prefix} handleChange={this.handleChange} value={'column1'} column={this.state.column1}/>))
     }
 
     buildWarmUpCards = () => {
-            return (this.props.prefixMeaningData.map(prefix => <PlayingCard key={prefix.id} prefix={prefix} handleChange={this.handleChange} value={'column2'}/>))
+            return (this.props.prefixMeaningData.map(prefix => <PlayingCard key={prefix.id} prefix={prefix} handleChange={this.handleChange} value={'column2'} column={this.state.column2}/>))
     }
 
     handleChange = event => {
-
-        console.log(event.target.dataset.value, event.target.dataset.id) 
-        event.target.dataset.value === 'column1' ? this.props.setColumn1Guess(event.target.dataset.id) : this.props.setColumn2Guess(event.target.dataset.id)
-        console.log(this.checkForMatch())
+        this.setState({[event.target.dataset.value]: event.target.dataset.id}, console.log(this.checkForMatch()))
+        
     }
 
     // removeHightLights = () => {
@@ -36,7 +36,9 @@ export class Round extends React.Component {
     // }
 
     checkForMatch = () => {
-        return this.props.column1Guess === this.props.column2Guess ? true : false
+        return this.state.column1 === this.state.column2 ? true : false
+
+        // return this.props.column1Guess === this.props.column2Guess ? true : false
     }
 
     render() {
