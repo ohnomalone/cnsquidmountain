@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PlayingCard Should match the snapshot with all data passed in correctly 1`] = `
+<div
+  className="playing--card__div column1"
+  data-value="column1"
+  onClick={[MockFunction]}
+  type="button"
+>
+  <p
+    className="playing--card__p--text"
+    data-value="column1"
+  />
+</div>
+`;
