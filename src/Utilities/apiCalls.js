@@ -11,8 +11,8 @@ export const fetchWord = async (word) => {
   if (response.ok === true) {
     const wordData = await response.json()
     return wordData
-  } else {
+  } 
     throw Error(response.statusText)
-  }
+  
 
 }

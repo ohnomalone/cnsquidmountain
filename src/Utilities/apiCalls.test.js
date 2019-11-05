@@ -1,3 +1,4 @@
+/* eslint-disable max-lines-per-function */
 import { fetchWord } from './apiCalls'
 
 describe('fetchWord', () => {
@@ -309,7 +310,9 @@ describe('fetchWord', () => {
   const mockOptions = {
     method: 'GET',
     headers: {
-      'X-Mashape-Key': 'dbc73f3956mshcf26537552ba173p1081edjsn50c9347e0b06',
+      // 'X-Mashape-Key': 'dbc73f3956mshcf26537552ba173p1081edjsn50c9347e0b06',
+      'X-Mashape-Key': "ENTER API KEY HERE",
+
       Accept: 'application/json'
     }
   }
@@ -327,4 +330,20 @@ describe('fetchWord', () => {
   it('should return a word object', () => {
     expect(fetchWord(mockWord)).resolves.toEqual(mockResponse)
   })
+
+  it('Should return an error (SAD)', () => {
+    window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+      ok: false
+    }))
+    expect(fetchWord('YOLO')).rejects.toEqual(Error())
+  })
+
+  it('Should return an error if the server is down', () => {
+    window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+      status: 500
+    }))
+    expect(fetchWord()).rejects.toEqual(Error())
+  })
+
+
 })

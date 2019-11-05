@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Game should match the snapshot 1`] = `
+<div
+  className="game--body"
+>
+  <header>
+    <div
+      className="game--logo--title__div"
+    >
+      <img
+        alt="Squid Mountain Logo"
+        className="game--logo"
+        src="squid_mountain_logo.png"
+      />
+      <h1
+        className="game--title"
+      >
+        Squid Mountain
+      </h1>
+    </div>
+    <div
+      className="game--name--startover"
+    >
+      <h3
+        className="game--name__h3--text"
+      />
+    </div>
+  </header>
+  <Connect(Round) />
+</div>
+`;
