@@ -2,7 +2,7 @@ export const fetchWord = async (word) => {
   const options = {
     method: 'GET',
     headers: {
-      'X-Mashape-Key': 'dbc73f3956mshcf26537552ba173p1081edjsn50c9347e0b06',
+      'X-Mashape-Key': 'ENTER API KEY HERE',
       'Accept': 'application/json'
     }
   }
@@ -11,8 +11,8 @@ export const fetchWord = async (word) => {
   if (response.ok === true) {
     const wordData = await response.json()
     return wordData
-  } else {
+  } 
     throw Error(response.statusText)
-  }
+  
 
 }

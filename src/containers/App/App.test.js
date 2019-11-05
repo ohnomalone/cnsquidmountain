@@ -637,35 +637,67 @@ describe('App', () => {
 })
 
 
-// describe('mapStateToProps', () => {
-//   it('should return an object with gameData, currentPlayer, currentRound, prefixRoundData, prefixMeaningData, column1Guess and column2Guess ', () => {
-//     const mockStoreState = {
-//       gameData: [],
-//       currentPlayer: '',
-//       currentRound: 0,
-//       prefixRoundData: [],
-//       prefixMeaningData: []
-//     }
-//     const expected = {
-//       gameData: [],
-//       currentPlayer: '',
-//       currentRound: 0,
-//       prefixRoundData: [],
-//       prefixMeaningData: []
-//     }
+describe('mapStateToProps', () => {
+  const mockGameData = [
+    {
+      prefix: 'e/ex',
+      meaning: 'out',
+      id: 0,
+      wordBank: [{
+        word: 'extract',
+        definition: 'obtain from a substance, as by mechanical action',
+        partOfSpeech: 'verb',
+        prefix: 'e/ex',
+        prefixMeaning: 'out',
+        rootWord: 'tract',
+        id: 0
+      },
+      {
+        word: 'express',
+        definition: 'obtain from a substance, as by mechanical action',
+        partOfSpeech: 'verb',
+        prefix: 'e/ex',
+        prefixMeaning: 'out',
+        rootWord: 'press',
+        id: 0
+      },
+      {
+        word: 'extend',
+        definition: 'extend in scope or range or area',
+        partOfSpeech: 'verb',
+        prefix: 'e/ex',
+        prefixMeaning: 'out',
+        rootWord: 'tend',
+        id: 0
+      }]
+    }]
+  const mockCurrentPlayer = 'JT'
+  const mockPrefixRoundData = [{
+    prefix: 'e/ex',
+    id: 1
+  }]
+  const mockprefxMeaningData = [{
+    prefix: 'out',
+    id: 1
+  }]
+  it('should return an object with gameData, currentPlayer, currentRound, prefixRoundData and prefixMeaningData ', () => {
+    const mockStoreState = {
+      gameData: mockGameData
+    }
+    const expected = {
+      gameData: mockStoreState.gameData
+    }
 
-//     const mappedProps = mapStateToProps(mockStoreState)
+    const mappedProps = mapStateToProps(mockStoreState)
 
-//     expect(mappedProps).toEqual(expected)
-//   })
-// })
+    expect(mappedProps).toEqual(expected)
+  })
+})
 
 describe('mapDispatchToProps', () => {
   it('calls dispatch with addFetchedWords', () => {
     const mockDispatch = jest.fn()
     const mockaction = jest.fn()
-    const setPrefixRoundData = jest.fn()
-    const setPrefixMeaningData = jest.fn()
     const wrapper = shallow(<App addFetchedWords={mockaction} />)
     const mockFetchedData = [
       [
@@ -731,6 +763,94 @@ describe('mapDispatchToProps', () => {
     const mappedProps = mapDispatchToProps(mockDispatch)
 
     mappedProps.addFetchedWords('ADD_FETCHED_WORDS', mockFetchedData)
+
+    expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
+  })
+
+  it('calls dispatch with setPrefixMeaningData', () => {
+    const mockDispatch = jest.fn()
+    const mockaction = jest.fn()
+    const wrapper = shallow(<App setPrefixMeaningData={mockaction} />)
+    const mockFetchedData = [
+      [
+        {
+          word: 'extract',
+          definition: 'obtain from a substance, as by mechanical action',
+          partOfSpeech: 'verb',
+          prefix: 'e/ex',
+          prefixMeaning: 'out',
+          rootWord: 'tract',
+          id: 0
+        },
+        {
+          word: 'express',
+          definition: 'obtain from a substance, as by mechanical action',
+          partOfSpeech: 'verb',
+          prefix: 'e/ex',
+          prefixMeaning: 'out',
+          rootWord: 'press',
+          id: 0
+        },
+        {
+          word: 'extend',
+          definition: 'extend in scope or range or area',
+          partOfSpeech: 'verb',
+          prefix: 'e/ex',
+          prefixMeaning: 'out',
+          rootWord: 'tend',
+          id: 0
+        }
+      ]
+    ]
+    const actionToDispatch = setPrefixMeaningData('SET_PREFIX_MEANING_DATA', mockFetchedData)
+
+    const mappedProps = mapDispatchToProps(mockDispatch)
+
+    mappedProps.setPrefixMeaningData('SET_PREFIX_MEANING_DATA', mockFetchedData)
+
+    expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
+  })
+
+  it('calls dispatch with setPrefixRoundData', () => {
+    const mockDispatch = jest.fn()
+    const mockaction = jest.fn()
+    const wrapper = shallow(<App setPrefixRoundData={mockaction} />)
+    const mockFetchedData = [
+      [
+        {
+          word: 'extract',
+          definition: 'obtain from a substance, as by mechanical action',
+          partOfSpeech: 'verb',
+          prefix: 'e/ex',
+          prefixMeaning: 'out',
+          rootWord: 'tract',
+          id: 0
+        },
+        {
+          word: 'express',
+          definition: 'obtain from a substance, as by mechanical action',
+          partOfSpeech: 'verb',
+          prefix: 'e/ex',
+          prefixMeaning: 'out',
+          rootWord: 'press',
+          id: 0
+        },
+        {
+          word: 'extend',
+          definition: 'extend in scope or range or area',
+          partOfSpeech: 'verb',
+          prefix: 'e/ex',
+          prefixMeaning: 'out',
+          rootWord: 'tend',
+          id: 0
+        }
+      ]
+    ]
+    const actionToDispatch = setPrefixRoundData('SET_PREFIX_ROUND_DATA', mockFetchedData)
+
+    const mappedProps = mapDispatchToProps(mockDispatch)
+
+    mappedProps.setPrefixRoundData('SET_PREFIX_ROUND_DATA', mockFetchedData)
 
     expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
   })
