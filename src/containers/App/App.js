@@ -19,7 +19,7 @@ export class App extends React.Component {
   componentDidMount = async () => {
     const { addFetchedWords, setPrefixRoundData, setPrefixMeaningData } = this.props
     
-    const fetchWordBank =  async () => {
+    const fetchWordBank = async () => {
       const variable = gameData.map ( async (prefix, i) => {
         const fetchedWordBank = prefix.wordBank.map( async (word, num) => wordFetchCleaner(prefix, await fetchThisWord(word), i+1, num))
         return Promise.all(fetchedWordBank)
