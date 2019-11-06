@@ -39,20 +39,6 @@ describe('Welcome', () => {
     expect(wrapper.instance().handleStart).toHaveBeenCalled()
   })
 
-  // it('should set state of name when handleChange is called with an input event', () => {
-  //   const wrapper = shallow(<ShuttleForm match={mockMatch}/>);
-  //   const inputEvent = {
-  //     target: {
-  //       name: 'name',
-  //       value: 'Quinne',
-  //     },
-  //   };
-
-  //   wrapper.instance().handleChange(inputEvent);
-
-  //   expect(wrapper.state('name')).toEqual(inputEvent.target.value);
-  // });
-
   it('Should be able to update state when handleChange() is called', () => {
 
     const mockEvent = {
