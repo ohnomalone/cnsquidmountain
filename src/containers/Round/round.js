@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { getPrefixData } from '../../Utilities/helpers'
@@ -33,6 +33,7 @@ const Round = ({
   //       currentCorrect: null
   //     }
   //   } e => handleEmailChange(e.target.value)
+  // eslint-disable-next-line max-lines-per-function
   const checkForMatch = () => {
     console.log('checkForMatch is RUNNING',column1, column2 );
     if (column1 === column2) {
@@ -59,19 +60,19 @@ const Round = ({
         handleColumn1False(0)
         handleColumn2False(0)
       }, 1000)
-      // setState({column1False: column1, column2False: column2}, () => {
-      //   setTimeout( () => {
-      //     setState({column1: null, column2: null, column1False: 0, column2False: 0})
-      //   }, 1000)
-      // })
     }
   }
 
+  useEffect(() => {
+    checkForMatch()
+  }, [column1, column2])
+
   const handleChange = (event) => {
     if (event.target.dataset.value ===  'column1') {
-      console.log(event.target.dataset.value, event.target.dataset.id);
+      handleColumn1(event.target.dataset.id)
     } else if (event.target.dataset.value ===  'column2') {
-      console.log(event.target.dataset.value, event.target.dataset.id);
+      handleColumn2(event.target.dataset.id)
+      // checkForMatch()
     }
   }
 
