@@ -21,19 +21,6 @@ const Round = ({
   const [column2False, handleColumn2False] = useState(null)
   const [currentCorrect, handleCurrentCorrect] = useState(null)
 
-  // export class Round extends React.Component {
-  //   constructor() {
-  //     super()
-  //     this.state = {
-  //       completedWords: [],
-  //       column1: null,
-  //       column2: null,
-  //       column1False: null,
-  //       column2False: null,
-  //       currentCorrect: null
-  //     }
-  //   } e => handleEmailChange(e.target.value)
-  // eslint-disable-next-line max-lines-per-function
   const checkForMatch = () => {
     console.log('checkForMatch is RUNNING',column1, column2 );
     if (column1 === column2) {
@@ -45,11 +32,6 @@ const Round = ({
         handleColumn2(null)
         handleCurrentCorrect(null)
       }, 700)
-      // setState({ currentCorrect: column1 }, () => {
-      //   setTimeout(() => {
-      //     setState({ column1: null, completedWords: [...completedWords, parseInt(column1)], column2: null, currentCorrect: null })
-      //   }, 700)
-      // })
     } else if (column1 && column2) {
       console.log('got itn the else if!!!');
       handleColumn1False(column1)
@@ -72,19 +54,12 @@ const Round = ({
       handleColumn1(event.target.dataset.id)
     } else if (event.target.dataset.value ===  'column2') {
       handleColumn2(event.target.dataset.id)
-      // checkForMatch()
     }
   }
 
   const buildPrefixCards = () => (prefixRoundData.map((prefix) => <PlayingCard key={prefix.id} prefix={prefix} handleChange={(e) => handleChange(e)} value="column1" column={column1} completedWords={completedWords} incorrect={column1False} currentCorrect={currentCorrect} />))
 
   const buildWarmUpCards = () => (prefixMeaningData.map((prefix) => <PlayingCard key={prefix.id} prefix={prefix} handleChange={(e) => handleChange(e)} value="column2" column={column2} completedWords={completedWords} incorrect={column2False} currentCorrect={currentCorrect} />))
-
-  // const handleChange = (event) => {
-  //   setState({ [event.target.dataset.value]: event.target.dataset.id },
-  //     () => checkForMatch())
-  // }
-
   
   const buildWarmUpCompletedCards = () => {
     const meamningDataSorted = prefixMeaningData.filter((prefix) => completedWords.includes(prefix.id)).sort((a, b) => a.id - b.id)
@@ -98,7 +73,6 @@ const Round = ({
 
   const buildCompletedCards = () => (currentRound ? buildroundUpCompletedCards() : buildWarmUpCompletedCards())
 
-  // render() {
   return (
     <>
       <main className="game__main">
@@ -120,7 +94,6 @@ const Round = ({
       </aside>
     </>
   )
-  // }
 }
 
 const matStateToProps = ({
