@@ -33,44 +33,44 @@ const [currentCorrect, handleCurrentCorrect] = useState(null)
 //   }
 
     buildPrefixCards = () => {
-      return (this.props.prefixRoundData.map((prefix) => <PlayingCard key={prefix.id} prefix={prefix} handleChange={this.handleChange} value="column1" column={this.state.column1} completedWords={this.state.completedWords} incorrect={this.state.column1False} currentCorrect={this.state.currentCorrect}/>))
+      return (prefixRoundData.map((prefix) => <PlayingCard key={prefix.id} prefix={prefix} handleChange={handleChange} value="column1" column={column1} completedWords={completedWords} incorrect={column1False} currentCorrect={currentCorrect}/>))
     }
 
     buildWarmUpCards = () => {
-      return (this.props.prefixMeaningData.map((prefix) => <PlayingCard key={prefix.id} prefix={prefix} handleChange={this.handleChange} value="column2" column={this.state.column2} completedWords={this.state.completedWords} incorrect={this.state.column2False} currentCorrect={this.state.currentCorrect}/>))
+      return (prefixMeaningData.map((prefix) => <PlayingCard key={prefix.id} prefix={prefix} handleChange={handleChange} value="column2" column={column2} completedWords={completedWords} incorrect={column2False} currentCorrect={currentCorrect}/>))
     }
 
     handleChange = (event) => {
-      this.setState({ [event.target.dataset.value]: event.target.dataset.id },
-        () => this.checkForMatch())
+      setState({ [event.target.dataset.value]: event.target.dataset.id },
+        () => checkForMatch())
     }
 
   buildCompletedCards = () => {
-    return this.props.currentRound ? this.buildroundUpCompletedCards() : this.buildWarmUpCompletedCards()
+    return currentRound ? buildroundUpCompletedCards() : buildWarmUpCompletedCards()
   }
 
   buildWarmUpCompletedCards = () => {
 
-    const meamningDataSorted = this.props.prefixMeaningData.filter( prefix => {
-      return this.state.completedWords.includes(prefix.id)
+    const meamningDataSorted = prefixMeaningData.filter( prefix => {
+      return completedWords.includes(prefix.id)
     }).sort((a, b) => a.id - b.id)
-    const prefixRoundDataSorted = this.props.prefixRoundData.filter( prefix => {
-      return this.state.completedWords.includes(prefix.id)
+    const prefixRoundDataSorted = prefixRoundData.filter( prefix => {
+      return completedWords.includes(prefix.id)
     }).sort((a, b) => a.id - b.id)
     return prefixRoundDataSorted.map( (correctAnswer, i) => <CompletedWarmUpCard prefix={correctAnswer} meaning={meamningDataSorted[i]} />)
   }
 
     checkForMatch = () => {
-      if (this.state.column1 === this.state.column2) {
-        this.setState({ currentCorrect: this.state.column1 }, () => {
+      if (column1 === column2) {
+        setState({ currentCorrect: column1 }, () => {
           setTimeout(() => {
-            this.setState({ column1: null, completedWords: [...this.state.completedWords, parseInt(this.state.column1)], column2: null, currentCorrect: null })
+            setState({ column1: null, completedWords: [...completedWords, parseInt(column1)], column2: null, currentCorrect: null })
           }, 700)
         })
-      } else if(this.state.column1 && this.state.column2) {
-        this.setState({column1False: this.state.column1, column2False: this.state.column2}, () => {
+      } else if(column1 && column2) {
+        setState({column1False: column1, column2False: column2}, () => {
           setTimeout( () => {
-            this.setState({column1: null, column2: null, column1False: 0, column2False: 0})
+            setState({column1: null, column2: null, column1False: 0, column2False: 0})
           }, 1000)
         })
       }
@@ -84,17 +84,17 @@ const [currentCorrect, handleCurrentCorrect] = useState(null)
                     <section className="round__section">
                         <div className="round__section--play prefix-guess">
                             <p className="prefix--root--title">PREFIX</p>
-                            {this.buildPrefixCards()}
+                            {buildPrefixCards()}
                         </div>
                         <div className="round__section--play root-guess">
-                        <p className="prefix--root--title">{this.props.currentRound ? 'ROOT' : 'MEANING'}</p>
-                        {this.props.currentRound ? 'ROOT' : this.buildWarmUpCards()}
+                        <p className="prefix--root--title">{currentRound ? 'ROOT' : 'MEANING'}</p>
+                        {currentRound ? 'ROOT' : buildWarmUpCards()}
                         </div>
                     </section>
                 </main>
                 <aside className="completed--words__aside">
                     <h2>Completed Words</h2>
-                    {this.buildCompletedCards()}
+                    {buildCompletedCards()}
                 </aside>
         </>
       )
