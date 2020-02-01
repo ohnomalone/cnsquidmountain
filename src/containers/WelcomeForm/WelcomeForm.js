@@ -27,9 +27,9 @@ export class WelcomeForm extends React.Component {
       this.setState({
         name: ''
       })
-    }
 
-    canBeSubmitted() {
+    }    canBeSubmitted(
+
       const { name } = this.state
       return name.length > 0
     }
