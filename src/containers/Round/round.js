@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import React from 'react'
+import React, { useState } from 'react'
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux'
 import { getPrefixData } from '../../Utilities/helpers'
@@ -12,18 +12,25 @@ import '../Game/game.css'
 
 const Round ({ prefixMeaningData, prefixRoundData, currentRound, gameData, column1Guess, column2Guess, setPrefixRoundData }) {
 
-export class Round extends React.Component {
-  constructor() {
-    super()
-    this.state = {
-      completedWords: [],
-      column1: null,
-      column2: null,
-      column1False: null,
-      column2False: null,
-      currentCorrect: null
-    }
-  }
+const [completedWords, handleCompletedWords] = useState([])
+const [column1, handleColumn1] = useState(null)
+const [column2, handleColumn2] = useState(null)
+const [column1False, handleColumn1False] = useState(null)
+const [column2False, handleColumn2False] = useState(null)
+const [currentCorrect, handleCurrentCorrect] = useState(null)  
+
+// export class Round extends React.Component {
+//   constructor() {
+//     super()
+//     this.state = {
+//       completedWords: [],
+//       column1: null,
+//       column2: null,
+//       column1False: null,
+//       column2False: null,
+//       currentCorrect: null
+//     }
+//   }
 
     buildPrefixCards = () => {
       return (this.props.prefixRoundData.map((prefix) => <PlayingCard key={prefix.id} prefix={prefix} handleChange={this.handleChange} value="column1" column={this.state.column1} completedWords={this.state.completedWords} incorrect={this.state.column1False} currentCorrect={this.state.currentCorrect}/>))
