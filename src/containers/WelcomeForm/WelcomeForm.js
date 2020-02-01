@@ -21,11 +21,8 @@ const WelcomeForm = () => {
   const handleSubmit = (event) => {
     event.preventDefault()
     const { setPlayer } = this.props
-    setPlayer(this.state.name)
-    this.setState({
-      name: ''
-    })
-
+    setPlayer(name)
+    handleNameChange('')
   }
     
   const handleStart = () => {
