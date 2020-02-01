@@ -7,31 +7,20 @@ import { setPlayer, ramdomizeGameData } from '../../actions'
 import './WelcomeForm.css'
 import squidMountainLogo from '../../images/squid_mountain_logo.png'
 
-const WelcomeForm = () => {
+const WelcomeForm = ({gameData, currentPlayer, setPlayer, ramdomizeGameData}) => {
   const [name, handleNameChange] = useState('')
-  // export class WelcomeForm extends React.Component {
-  //   constructor() {
-  //     super()
-  //     this.state = {
-  //       name: ''
-  //     }
-  //   }
-
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    const { setPlayer } = this.props
     setPlayer(name)
     handleNameChange('')
   }
-    
+
   const handleStart = () => {
-    const { ramdomizeGameData, gameData } = this.props
-    ramdomizeGameData(gameData)
+    // ramdomizeGameData(gameData) - cufrrently commented out until fetch is solved to get this data
   }
-    
+
   const canBeSubmitted = () => {
-    const { name } = this.state
     return name.length > 0
   }
 
@@ -46,17 +35,17 @@ const WelcomeForm = () => {
             className="large_logo"
           />
           <form className="welcomeForm">
-            <label htmlFor="name" className={props.currentPlayer ? 'display-none' : 'welcomeFormName__label'}>Mountaineer's Name:</label>
-            <input className={props.currentPlayer ? 'display-none' : 'welcomeFormName__input'} id="name" type="text" name="name" placeholder="Enter Name Here" onChange={handleChange} value={name} />
-            <button type="button" className={props.currentPlayer ? 'display-none' : 'welcomeFormName__button'} disabled={!isEnabled} onClick={handleSubmit}>Enter</button>
-            <p className={props.currentPlayer ? 'welcomeForm--welcome--text' : 'display-none'}>Welcome,</p>
-            <p className={props.currentPlayer ? 'currentPlayer--name' : 'display-none'}>
-              {props.currentPlayer}
+            <label htmlFor="name" className={currentPlayer ? 'display-none' : 'welcomeFormName__label'}>Mountaineer's Name:</label>
+            <input className={currentPlayer ? 'display-none' : 'welcomeFormName__input'} id="name" type="text" name="name" placeholder="Enter Name Here" onChange={e => handleNameChange(e.target.value)} value={name} />
+            <button type="button" className={currentPlayer ? 'display-none' : 'welcomeFormName__button'} disabled={!isEnabled} onClick={handleSubmit}>Enter</button>
+            <p className={currentPlayer ? 'welcomeForm--welcome--text' : 'display-none'}>Welcome,</p>
+            <p className={currentPlayer ? 'currentPlayer--name' : 'display-none'}>
+              {currentPlayer}
 !
             </p>
             <div className="ready__div">
-              <p className={props.currentPlayer ? 'welcomeForm--ready--text' : 'display-none'}>Ready to go?</p>
-              <div className={props.currentPlayer ? 'start__button--wrapper' : 'display-none'}>
+              <p className={currentPlayer ? 'welcomeForm--ready--text' : 'display-none'}>Ready to go?</p>
+              <div className={currentPlayer ? 'start__button--wrapper' : 'display-none'}>
                 <div className="start__button--border">
                   <div className="start__button--pulse" />
                   <Link to="/play">
