@@ -1,3 +1,4 @@
+/* eslint-disable max-lines-per-function */
 import React from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
@@ -5,8 +6,10 @@ import './game.css'
 import squidMountainLogo from '../../images/squid_mountain_logo.png'
 import Round from '../Round/round'
 
-export class Game extends React.Component {
-  render() {
+const Game = ({ currentPlayer }) => {
+
+// export class Game extends React.Component {
+  // render() {
     return (
       <div className="game--body">
             <header>
@@ -19,7 +22,7 @@ export class Game extends React.Component {
                     <h1 className="game--title">Squid Mountain</h1>
                   </div>
                 <div className="game--name--startover">
-                    <h3 className="game--name__h3--text">{this.props.currentPlayer}</h3>
+                    <h3 className="game--name__h3--text">{currentPlayer}</h3>
                     {/* <button
                                 type='button'
                                 className="game--startover--button"
@@ -33,7 +36,7 @@ export class Game extends React.Component {
 
           </div>
     )
-  }
+  // }
 }
 
 
