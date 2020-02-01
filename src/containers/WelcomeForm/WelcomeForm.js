@@ -28,17 +28,17 @@ export class WelcomeForm extends React.Component {
         name: ''
       })
 
-    }    canBeSubmitted(
-
-      const { name } = this.state
-      return name.length > 0
     }
-
+    
     handleStart = () => {
       const { ramdomizeGameData, gameData } = this.props
       ramdomizeGameData(gameData)
     }
-
+    
+    canBeSubmitted() {
+      const { name } = this.state
+      return name.length > 0
+    }
 
     render() {
       const isEnabled = this.canBeSubmitted()
