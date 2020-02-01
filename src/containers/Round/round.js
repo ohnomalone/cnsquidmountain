@@ -10,6 +10,8 @@ import { setPrefixRoundData } from '../../actions'
 import './round.css'
 import '../Game/game.css'
 
+const Round ({ prefixMeaningData, prefixRoundData, currentRound, gameData, column1Guess, column2Guess, setPrefixRoundData }) {
+
 export class Round extends React.Component {
   constructor() {
     super()
@@ -67,7 +69,7 @@ export class Round extends React.Component {
       }
     }
 
-    render() {
+    // render() {
       return (
         <>
                 <main className="game__main">
@@ -89,7 +91,7 @@ export class Round extends React.Component {
                 </aside>
         </>
       )
-    }
+    // }
 }
 
 const matStateToProps = ({ prefixMeaningData, prefixRoundData, currentRound, gameData, column1Guess, column2Guess }) => ({ prefixMeaningData, prefixRoundData, currentRound, gameData, column1Guess, column2Guess})
