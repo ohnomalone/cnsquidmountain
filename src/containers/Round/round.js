@@ -5,14 +5,14 @@ import { connect } from 'react-redux'
 import { getPrefixData } from '../../Utilities/helpers'
 import PlayingCard from '../../components/PlayingCard/playingCard'
 import CompletedWarmUpCard from '../../components/CompletedCard/completedCard'
-import { setPrefixRoundData } from '../../actions'
+import { setPrefixRoundData, increaseRound } from '../../actions'
 
 import './round.css'
 import '../Game/game.css'
 
 // eslint-disable-next-line max-lines-per-function
 const Round = ({
-  prefixMeaningData, prefixRoundData, currentRound, gameData, column1Guess, column2Guess, setPrefixRoundData
+  prefixMeaningData, prefixRoundData, currentRound, gameData, column1Guess, column2Guess, setPrefixRoundData, increaseRound
 }) => {
   const [completedWords, handleCompletedWords] = useState([])
   const [column1, handleColumn1] = useState(null)
@@ -47,11 +47,24 @@ const Round = ({
 
   useEffect(() => {
     console.log('completed words length in use effect', completedWords.length)
-    if (column1 !== null && column2 !== null) {
+   if (column1 !== null && column2 !== null) {
       console.log('hi')
       checkForMatch()
     }
   }, [column1, column2])
+
+  useEffect(() => {
+    if (completedWords.length === 5) {
+      // console.log('does this exist????')
+      // console.log('IN USE EFFECT IF', currentRound)
+      let current = currentRound
+      let updatedRound = currentRound++
+      // console.log('updated round', updatedRound)
+      increaseRound(currentRound)
+      console.log('after increase round', currentRound)
+      buildroundUpCompletedCards()
+    } 
+  }, [completedWords])
 
   const handleChange = (event) => {
     if (event.target.dataset.value ===  'column1') {
@@ -72,6 +85,7 @@ const Round = ({
   }
 
   const buildroundUpCompletedCards = () => {
+    console.log('in round up completed cards', currentRound)
     console.log('Time for', currentRound);
   }
 
@@ -107,7 +121,8 @@ const matStateToProps = ({
 })
 
 export const mapDispatchToProps = (dispatch) => (bindActionCreators({
-  setPrefixRoundData
+  setPrefixRoundData,
+  increaseRound
 }, dispatch))
 
 export default connect(matStateToProps, mapDispatchToProps)(Round)
