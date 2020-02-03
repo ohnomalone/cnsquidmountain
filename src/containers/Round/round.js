@@ -23,12 +23,12 @@ const Round = ({
 
   const checkForMatch = () => {
     console.log('checkForMatch is RUNNING',column1, column2 );
-    if (column1 === column2) {
+    if (column1 === column2 && column1 !== null && column2 !== null) {
       console.log('got itn the first if!!!');
       handleCurrentCorrect(column1)
       setTimeout(() => { 
-        handleColumn1(null)
         handleCompletedWords([...completedWords, parseInt(column1)])
+        handleColumn1(null)
         handleColumn2(null)
         handleCurrentCorrect(null)
       }, 700)
@@ -46,7 +46,11 @@ const Round = ({
   }
 
   useEffect(() => {
-    checkForMatch()
+    console.log('completed words length in use effect', completedWords.length)
+    if (column1 !== null && column2 !== null) {
+      console.log('hi')
+      checkForMatch()
+    }
   }, [column1, column2])
 
   const handleChange = (event) => {
