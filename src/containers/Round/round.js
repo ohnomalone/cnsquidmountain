@@ -55,11 +55,8 @@ const Round = ({
 
   useEffect(() => {
     if (completedWords.length === 5) {
-      // console.log('does this exist????')
-      // console.log('IN USE EFFECT IF', currentRound)
       let current = currentRound
       let updatedRound = currentRound++
-      // console.log('updated round', updatedRound)
       increaseRound(currentRound)
       console.log('after increase round', currentRound)
       buildroundUpCompletedCards()
@@ -85,7 +82,6 @@ const Round = ({
   }
 
   const buildroundUpCompletedCards = () => {
-    console.log('in round up completed cards', currentRound)
     console.log('Time for', currentRound);
   }
 
