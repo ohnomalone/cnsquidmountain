@@ -36,7 +36,7 @@ const WelcomeForm = ({gameData, currentPlayer, setPlayer, ramdomizeGameData}) =>
           <h1 className="welcomeForm--title">Squid Mountain</h1>
           <form className="welcomeForm">
             <label htmlFor="name" className={currentPlayer ? 'display-none' : 'welcomeFormName__label'}>Welcome, what's your name?</label>
-            <input className={currentPlayer ? 'display-none' : 'welcomeFormName__input'} id="name" type="text" name="name" placeholder="Enter Name Here" onChange={e => handleNameChange(e.target.value)} value={name} />
+            <input className={currentPlayer ? 'display-none' : 'welcomeFormName__input'} id="name" type="text" name="name" placeholder="Enter your name here!" onChange={e => handleNameChange(e.target.value)} value={name} />
             <button type="button" className={currentPlayer ? 'display-none' : 'welcomeFormName__button'} disabled={!isEnabled} onClick={handleSubmit}>Let's Play</button>
             <p className={currentPlayer ? 'welcomeForm--welcome--text' : 'display-none'}>Welcome,</p>
             <p className={currentPlayer ? 'currentPlayer--name' : 'display-none'}>

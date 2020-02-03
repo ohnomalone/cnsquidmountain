@@ -28,9 +28,6 @@
     /* background: rgba(169, 169, 169, 0.55); */
     padding: 15px;
     border-radius: 10px;
-    width: 30%;
-    min-width: 355px;
-    max-width: 700px;
     height: 190px;
 }
 
@@ -39,21 +36,22 @@
     font-size: 23px;
     font-weight: 500;
     color: #FFF;
+    font-size: 30px;
 }
 
 .welcomeFormName__input {
     border: none;
     height: 50px;
     margin-bottom: 20px;
-    font-size: 40px;
+    font-size: 30px;
     text-align: center;
     padding-bottom: 5px;
     font-weight: 500;
     border-radius: 10px;
+    width: 100%;
 }
 
 ::placeholder {
-    /* color: white; */
     font-weight: 300;
 }
 
