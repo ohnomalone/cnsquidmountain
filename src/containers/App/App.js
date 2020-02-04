@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import './App.css';
 import {fetchWord} from '../../Utilities/apiCalls'
 import gameData from '../../gameData/gameData'
+import StartEndGame from '../StartEndGame/startEndGame'
 import { wordFetchCleaner } from '../../Utilities/helpers'
 import { connect } from 'react-redux'
 import { addFetchedWords, setPrefixRoundData, setPrefixMeaningData } from '../../actions'
@@ -45,6 +46,8 @@ export class App extends React.Component {
       <Router>
         <div className="App_div">
           <Route exact path="/" component={WelcomeForm} />
+          <Route exact path="/rules" component={StartEndGame} />
+          <Route exact path="/game-complete" component={StartEndGame} />
           <Route exact path="/play" component={Game} />
         </div>
       </Router>
