@@ -6,6 +6,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import { rootReducer } from '../src/reducers/index';
 import App from './containers/App/App';
 import './index.css';
+import './normalize'
 import * as serviceWorker from './serviceWorker';
 
 
