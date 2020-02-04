@@ -96,7 +96,7 @@ const Round = ({
   )
 }
 
-const matStateToProps = ({
+const maStateToProps = ({
   prefixMeaningData, prefixRoundData, currentRound, gameData, column1Guess, column2Guess
 }) => ({
   prefixMeaningData, prefixRoundData, currentRound, gameData, column1Guess, column2Guess
