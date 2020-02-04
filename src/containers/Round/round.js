@@ -96,7 +96,7 @@ const Round = ({
   )
 }
 
-const maStateToProps = ({
+const mapStateToProps = ({
   prefixMeaningData, prefixRoundData, currentRound, gameData, column1Guess, column2Guess
 }) => ({
   prefixMeaningData, prefixRoundData, currentRound, gameData, column1Guess, column2Guess
@@ -106,4 +106,4 @@ export const mapDispatchToProps = (dispatch) => (bindActionCreators({
   setPrefixRoundData
 }, dispatch))
 
-export default connect(matStateToProps, mapDispatchToProps)(Round)
+export default connect(mapStateToProps, mapDispatchToProps)(Round)
