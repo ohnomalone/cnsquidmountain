@@ -18,7 +18,8 @@ main {
 }
 
 .squid-mountain_logo {
-    height: 90%;
+    height: 100%;
+    width: auto;
 }
 
 .game--title {
