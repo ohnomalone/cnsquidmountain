@@ -8,7 +8,7 @@
     width: 100%;
 }
 
-header {
+.game__header {
  grid-area: header;
  display: flex;
  justify-content: space-between;
