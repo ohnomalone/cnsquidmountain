@@ -12,7 +12,7 @@ const Game = ({ currentPlayer }) =>
   // render() {
   (
     <div className="game--body">
-      <header className="gm">
+      <header className="game__header">
         <div className="game--logo--title__div">
           <img
             src={squidMountainLogo}

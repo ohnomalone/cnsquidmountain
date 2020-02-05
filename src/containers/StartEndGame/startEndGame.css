@@ -21,6 +21,12 @@ main {
     height: 90%;
 }
 
+.game--title {
+    color: #fff;
+    font-size: 70px;
+    margin: 0;
+}
+
 .rules__p {
     color: #fff;
 }
