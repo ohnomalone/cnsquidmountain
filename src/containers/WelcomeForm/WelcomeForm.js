@@ -48,7 +48,7 @@ const WelcomeForm = ({gameData, currentPlayer, setPlayer, ramdomizeGameData}) =>
               <div className={currentPlayer ? 'start__button--wrapper' : 'display-none'}>
                 <div className="start__button--border">
                   <div className="start__button--pulse" />
-                  <Link to="/play">
+                  <Link to="/rules">
                     <button
                       type="button"
                       className="welcomeForm--start--button"
