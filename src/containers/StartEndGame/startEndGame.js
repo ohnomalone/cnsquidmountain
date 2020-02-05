@@ -46,6 +46,7 @@ const StartEndGame = ({ currentPlayer, currentRound }) => {
                 </h2>
                 <p className="rules-welcome__p">With that warmup you're ready to climb Squid Mountain!</p>
                 <div className="rules__container">
+                    <p className="rules__p">Your climb is 5 rounds. Each round you will create  <br /> 5 words from the prefixs and roots.</p>
                     <p className="rules__p">Rules:</p>
                     <ol>
                         <li className="rules__p">Make a complete word by matching the prefix  <br /> on the left with the root on the right </li>
