@@ -9,6 +9,8 @@
     grid-area: header;
     height: 10vh;
     display: flex;
+    padding: 10px;
+    align-items: center;
 }
 
 .startEndGame__container {
@@ -27,12 +29,7 @@
 .squid-mountain_logo {
     height: 100%;
     width: auto;
-}
-
-.game--title {
-    color: #fff;
-    font-size: 70px;
-    margin: 0;
+    margin-right: 15px;
 }
 
 .startEndGame--welcome {
