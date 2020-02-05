@@ -7,8 +7,6 @@ import squidMountainLogo from '../../images/squid_mountain_logo.png'
 
 const StartEndGame = ({ currentPlayer, currentRound }) => {
 
-    // create a variable that takes in the currentRound and assignes the correct thing for the object to be returned
-    // create object that holds the three options for what to return
     const showRules = {
         0 : (
             <div className="startEndGame__container">
@@ -59,6 +57,24 @@ const StartEndGame = ({ currentPlayer, currentRound }) => {
                 </Link>
             </div>
         </div>
+        ), 
+        5: (
+            <div className="startEndGame__container">
+            <div className="startEndGame__main">
+                <h2 className="startEndGame--welcome">
+                    You made it to the summit,
+                {' '}
+                {currentPlayer}
+        !
+                </h2>
+                <h2 className="startEndGame--welcome">
+                    Congratulations!
+                </h2>
+                <Link to="/play">
+                <button type="button" className={'welcomeFormName__button'}>Review Climb</button>
+                </Link>
+            </div>
+        </div>
         )
     }
 
@@ -73,7 +89,7 @@ const StartEndGame = ({ currentPlayer, currentRound }) => {
         />
         <h3 className="game--title">Squid Mountain</h3>
         </header>
-        {showRules[1]}
+        {showRules[currentRound]}
     </section>
     )
     }
