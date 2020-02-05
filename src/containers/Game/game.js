@@ -6,38 +6,37 @@ import './game.css'
 import squidMountainLogo from '../../images/squid_mountain_logo.png'
 import Round from '../Round/round'
 
-const Game = ({ currentPlayer }) => {
+const Game = ({ currentPlayer }) =>
 
 // export class Game extends React.Component {
   // render() {
-    return (
-      <div className="game--body">
-            <header className="game__header">
-                <div className="game--logo--title__div">
-                    <img
-                        src={squidMountainLogo}
-                        alt="Squid Mountain Logo"
-                        className="game--logo"
-                      />
-                    <h1 className="game--title">Squid Mountain</h1>
-                  </div>
-                <div className="game--name--startover">
-                    <h3 className="game--name__h3--text">{currentPlayer}</h3>
-                    {/* <button
+  (
+    <div className="game--body">
+      <header className="gm">
+        <div className="game--logo--title__div">
+          <img
+            src={squidMountainLogo}
+            alt="Squid Mountain Logo"
+            className="game--logo"
+          />
+          <h1 className="game--title">Squid Mountain</h1>
+        </div>
+        <div className="game--name--startover">
+          <h3 className="game--name__h3--text">{currentPlayer}</h3>
+          {/* <button
                                 type='button'
                                 className="game--startover--button"
                                 // onClick={(event) => this.handleSubmit(event)}
                                 >Do A Thing</button>  */}
-                  </div>
-              </header>
-            <Round />
-            {/* enter round and round recap containers here */}
+        </div>
+      </header>
+      <Round />
+      {/* enter round and round recap containers here */}
 
 
-          </div>
-    )
+    </div>
+  )
   // }
-}
 
 
 const matStateToProps = ({ currentPlayer }) => ({ currentPlayer })
