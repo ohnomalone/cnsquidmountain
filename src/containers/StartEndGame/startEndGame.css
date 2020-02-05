@@ -35,6 +35,23 @@
     margin: 0;
 }
 
-.rules__p {
+.startEndGame--welcome {
+    font-size: 50px;
     color: #fff;
+}
+
+.rules__container {
+    margin-bottom: 20px;
+}
+
+.rules-welcome__p {
+    font-size: 20px;
+    color: #fff;
+    font-weight: 700;
+}
+
+.rules__p {
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 10px;
 }
