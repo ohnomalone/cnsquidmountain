@@ -4,11 +4,11 @@ import { BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import './App.css';
 import {fetchWord} from '../../Utilities/apiCalls'
 import gameData from '../../gameData/gameData'
-import StartEndGame from '../StartEndGame/startEndGame'
 import { wordFetchCleaner } from '../../Utilities/helpers'
 import { connect } from 'react-redux'
 import { addFetchedWords, setPrefixRoundData, setPrefixMeaningData } from '../../actions'
 
+import StartEndGame from '../StartEndGame/startEndGame'
 import WelcomeForm from '../WelcomeForm/WelcomeForm'
 import Game from '../Game/game'
 

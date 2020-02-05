@@ -11,7 +11,8 @@ const WelcomeForm = ({gameData, currentPlayer, setPlayer, ramdomizeGameData}) =>
   const [name, handleNameChange] = useState('')
 
   const handleSubmit = (event) => {
-    event.preventDefault()
+    console.log('CLICK IS FIRING');
+    // event.preventDefault()
     setPlayer(name)
     handleNameChange('')
   }
