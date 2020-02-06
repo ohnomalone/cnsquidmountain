@@ -72,4 +72,6 @@
 .prefix--root--title {
     color: black;
     border-bottom:1px solid black;
+    font-size: 25px;
+    margin-top: 10px;
 }
