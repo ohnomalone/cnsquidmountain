@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 import './startEndGame.css'
 import squidMountainLogo from '../../images/squid_mountain_logo.png'
 
-
 const StartEndGame = ({ currentPlayer, currentRound }) => {
 
     const showRules = {
