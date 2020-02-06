@@ -37,12 +37,12 @@ const StartEndGame = ({ currentPlayer, currentRound }) => {
             <div className="startEndGame__container">
             <div className="startEndGame__main">
                 <h2 className="startEndGame--welcome">
-                    Great warmup,
+                    Great warm up,
                 {' '}
                 {currentPlayer}
         !
                 </h2>
-                <p className="rules-welcome__p">With that warmup you're ready to climb Squid Mountain!</p>
+                <p className="rules-welcome__p">With that warm up you're ready to climb Squid Mountain!</p>
                 <div className="rules__container">
                     <p className="rules__p">Your climb is 5 rounds. Each round you will create  <br /> 5 words from the prefixs and roots.</p>
                     <p className="rules__p">Rules:</p>
