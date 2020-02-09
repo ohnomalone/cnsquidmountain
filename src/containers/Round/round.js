@@ -5,14 +5,14 @@ import { connect } from 'react-redux'
 import { getPrefixData } from '../../Utilities/helpers'
 import PlayingCard from '../../components/PlayingCard/playingCard'
 import CompletedWarmUpCard from '../../components/CompletedCard/completedCard'
-import { setPrefixRoundData } from '../../actions'
+import { setPrefixRoundData, increaseRound } from '../../actions'
 
 import './round.css'
 import '../Game/game.css'
 
 // eslint-disable-next-line max-lines-per-function
 const Round = ({
-  prefixMeaningData, prefixRoundData, currentRound, gameData, column1Guess, column2Guess, setPrefixRoundData
+  prefixMeaningData, prefixRoundData, currentRound, gameData, column1Guess, column2Guess, setPrefixRoundData, increaseRound
 }) => {
   const [completedWords, handleCompletedWords] = useState([])
   const [column1, handleColumn1] = useState(null)
@@ -23,12 +23,12 @@ const Round = ({
 
   const checkForMatch = () => {
     console.log('checkForMatch is RUNNING',column1, column2 );
-    if (column1 === column2) {
+    if (column1 === column2 && column1 !== null && column2 !== null) {
       console.log('got itn the first if!!!');
       handleCurrentCorrect(column1)
       setTimeout(() => { 
-        handleColumn1(null)
         handleCompletedWords([...completedWords, parseInt(column1)])
+        handleColumn1(null)
         handleColumn2(null)
         handleCurrentCorrect(null)
       }, 700)
@@ -46,8 +46,22 @@ const Round = ({
   }
 
   useEffect(() => {
-    checkForMatch()
+    console.log('completed words length in use effect', completedWords.length)
+   if (column1 !== null && column2 !== null) {
+      console.log('hi')
+      checkForMatch()
+    }
   }, [column1, column2])
+
+  useEffect(() => {
+    if (completedWords.length === 5) {
+      let current = currentRound
+      let updatedRound = currentRound++
+      increaseRound(currentRound)
+      console.log('after increase round', currentRound)
+      buildroundUpCompletedCards()
+    } 
+  }, [completedWords])
 
   const handleChange = (event) => {
     if (event.target.dataset.value ===  'column1') {
@@ -103,7 +117,8 @@ const mapStateToProps = ({
 })
 
 export const mapDispatchToProps = (dispatch) => (bindActionCreators({
-  setPrefixRoundData
+  setPrefixRoundData,
+  increaseRound
 }, dispatch))
 
 export default connect(mapStateToProps, mapDispatchToProps)(Round)
