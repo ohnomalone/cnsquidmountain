@@ -23,7 +23,7 @@ const Round = ({
 
   const checkForMatch = () => {
     if (column1 === column2 && column1 !== null && column2 !== null) {
-      handleCurrentCorrect(columgit an1)
+      handleCurrentCorrect(column1)
       setTimeout(() => { 
         handleCompletedWords([...completedWords, parseInt(column1)])
         handleColumn1(null)
