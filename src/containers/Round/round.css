@@ -15,11 +15,13 @@
     width: 90%;
     display: flex;
     flex-direction: column;
-    background: rgba(245, 245, 245, 0.85);
+    background: rgba(181, 245, 137, 1);
     box-shadow: 0 4px 8px 0 #505050, 0 6px 20px 1px #505050;
     color: black;
     padding: 5px 10px;
     margin-bottom: 10px;
+    /* color: #FFF; */
+
 }
 
 .compltedword--word--definition {
@@ -28,15 +30,17 @@
 }
 
 .completedWord__p--word {
-    font-size: 20px;
+    font-size: 30px;
     font-weight: 500;
     margin: 0;
 }
 
 .completedWord__p--pos {
+    /* color: #FFF; */
     color: #505050;
-    font-style: italic;
+    /* font-style: italic; */
     margin: 0;
+    font-size: 20px;
 }
 
 .completedWord__p--def {
@@ -68,4 +72,6 @@
 .prefix--root--title {
     color: black;
     border-bottom:1px solid black;
+    font-size: 25px;
+    margin-top: 10px;
 }

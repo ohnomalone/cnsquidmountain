@@ -76,27 +76,27 @@ const Round = ({
   return (
     <>
       <main className="game__main">
-        <h2>Round</h2>
+        <h2>{currentRound ? 'ROUND' : 'WARM UP'} {currentRound ? (': ', currentRound) : ''}</h2>
         <section className="round__section">
           <div className="round__section--play prefix-guess">
-            <p className="prefix--root--title">PREFIX</p>
+            <p className="prefix--root--title"><b>PREFIX</b></p>
             {buildPrefixCards()}
           </div>
           <div className="round__section--play root-guess">
-            <p className="prefix--root--title">{currentRound ? 'ROOT' : 'MEANING'}</p>
+            <p className="prefix--root--title"><b>{currentRound ? 'ROOT' : 'MEANING'}</b></p>
             {currentRound ? 'ROOT' : buildWarmUpCards()}
           </div>
         </section>
       </main>
       <aside className="completed--words__aside">
-        <h2>Completed Words</h2>
+        <h2>Completed</h2>
         {buildCompletedCards()}
       </aside>
     </>
   )
 }
 
-const matStateToProps = ({
+const mapStateToProps = ({
   prefixMeaningData, prefixRoundData, currentRound, gameData, column1Guess, column2Guess
 }) => ({
   prefixMeaningData, prefixRoundData, currentRound, gameData, column1Guess, column2Guess
@@ -106,4 +106,4 @@ export const mapDispatchToProps = (dispatch) => (bindActionCreators({
   setPrefixRoundData
 }, dispatch))
 
-export default connect(matStateToProps, mapDispatchToProps)(Round)
+export default connect(mapStateToProps, mapDispatchToProps)(Round)

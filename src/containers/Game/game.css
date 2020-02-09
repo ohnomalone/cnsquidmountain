@@ -8,11 +8,13 @@
     width: 100%;
 }
 
-header {
+.game__header {
  grid-area: header;
  display: flex;
  justify-content: space-between;
  height: 10vh;
+ /* padding: 10px; */
+ /* align-items: center; */
 }
 
 main {
@@ -34,16 +36,20 @@ aside {
     display: flex;
     align-items: center;
     width: 70%;
+    padding: 15px;
+    align-items: center;
+
 }
 
 .game--logo {
     height: 100%;
     width: auto;
+    margin-right: 15px;
 }
   
 .game--title {
-    color: black;
-    font-size: 70px;
+    color: #fff;
+    font-size: 55px;
     margin: 0;
 }
 

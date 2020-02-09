@@ -17,7 +17,7 @@
 }
 
 .correct--card {
-    border: 5px solid rgb(8, 219, 8);
+    border: 5px solid rgba(181, 245, 137, 1);;
     box-shadow: 0 4px 8px 0 #505050, 0 6px 20px 1px #505050;
 }
 
@@ -35,7 +35,7 @@
 }
 
 .playing--card__p--text {
-    color: black;
+    color: rgb(39,69,81);
     font-size: 45px;
     font-weight: 700;
     margin: 0;

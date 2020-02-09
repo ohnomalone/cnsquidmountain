@@ -1,0 +1,54 @@
+.startEndGame__section {
+    background: rgba(85, 84, 84, 0.75);
+    height: 100vh;
+    /* display: flex; */
+    /* align-items: center; */
+}
+
+.header {
+    grid-area: header;
+    height: 10vh;
+    display: flex;
+    padding: 15px;
+    align-items: center;
+}
+
+.startEndGame__container {
+    display: flex;
+    justify-content: center;
+    height: 90%;
+    align-items: center;
+}
+
+.startEndGame__main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.squid-mountain_logo {
+    height: 100%;
+    width: auto;
+    margin-right: 15px;
+}
+
+.startEndGame--welcome {
+    font-size: 50px;
+    color: #fff;
+}
+
+.rules__container {
+    margin-bottom: 20px;
+}
+
+.rules-welcome__p {
+    font-size: 20px;
+    color: #fff;
+    font-weight: 700;
+}
+
+.rules__p {
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 10px;
+}
